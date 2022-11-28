@@ -19,6 +19,7 @@ class Laporan_mybus extends CI_Controller {
 			redirect('backend/login_mybus');
 		}
 	}
+	
 	public function index(){
 		$data['title'] = 'Laporan';
 		$data['bulan'] = $this->db->query("SELECT DISTINCT DATE_FORMAT(create_tgl_tiket,'%M %Y') AS bulan FROM tbl_tiket_mybus")->result_array();
@@ -34,7 +35,8 @@ class Laporan_mybus extends CI_Controller {
 
 	public function laporbulan($value=''){
 		$data['bulan'] = $this->input->post('bulan');
-		$data['laporan'] = $this->db->query("SELECT * DISTINCT DATE_FORMAT(create_tgl_tiket,'%M %Y') AS bulan FROM tbl_tiket_mybus")->result_array();
+		$data['laporan'] = $this->db->query("SELECT * FROM tbl_tiket_mybus WHERE month(create_tgl_tiket) ='11'")->result_array();
+
 		$this->load->view('backend/laporan/laporan_perbulan', $data);		
 	}
 }

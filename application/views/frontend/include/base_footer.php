@@ -33,7 +33,7 @@
 			</footer>
 			<div class="preloader">
 			<div class="loading">
-				<img src="<?php echo base_url('assets/frontend/img/preloader.gif') ?>" width="80">
+				<img src="<?php echo base_url('assets/frontend/img/loading.gif') ?>" width="80">
 				<p>Harap Tunggu</p>
 			</div>
 		</div>	

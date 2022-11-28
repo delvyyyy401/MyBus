@@ -20,7 +20,6 @@ class Home_mybus extends CI_Controller {
             'captcha' => $this->recaptcha->getWidget(), // menampilkan recaptcha
             'script_captcha' => $this->recaptcha->getScriptTag(), // javascript recaptcha ditaruh di head
         );
-        // die(print_r($data));
 		$this->load->view('frontend/home',$data);		
 	}
 	public function profile($value='')

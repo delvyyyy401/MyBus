@@ -104,13 +104,13 @@
                 <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan_mybus/laporbulan') ?>" target="_blank">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label class="control-label col-xs-3" >Bulan</label>
+                            <label class="control-label col-xs-3">Bulan</label>
                             <div class="col-xs-9">
                                 <select name="bulan" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Bulan" data-width="80%" required/>
                                     <option value='' selected disabled>Pilih Bulan</option>
-                                <?php foreach ($bulan as $row) { ?>
-                                    <option value="<?php echo $row['bulan'] ?>"><?php echo $row['bulan'] ?></option>
-                                <?php } ?>
+                                    <?php foreach ($bulan as $row) { ?>
+                                        <option value="<?php echo $row['bulan'] ?>"><?php echo $row['bulan'] ?></option>
+                                    <?php } ?>
                                                                 </select>
 
                             </div>

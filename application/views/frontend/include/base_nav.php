@@ -2,7 +2,7 @@
 		    <div class="container">
 		    	<div class="row align-items-center justify-content-between d-flex">
 			      <div id="logo">
-			        <a href="<?php echo base_url() ?>"><h3  style="color: red;"><b>My Bus</b></h3></a>
+			        <a href="<?php echo base_url() ?>"><h3><b>My Bus</b></h3></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
@@ -22,7 +22,7 @@
  					  <li><a href="<?php echo base_url() ?>login_mybus">Login</a></li>
 				  	  <?php } ?>
 			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
+			      </nav>
 		    	</div>
 		    </div>
-		  </header><!-- #header -->	
+		  </header>

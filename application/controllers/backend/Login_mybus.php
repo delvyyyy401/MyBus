@@ -51,12 +51,12 @@ class Login_mybus extends CI_Controller {
 		redirect(base_url('backend/login_mybus'));
 	}
 	public function cekuser(){
-    $username = strtolower($this->input->post('username'));
-    $ambil = $this->db->query('select * from tbl_admin_mybus where email_admin = "'.$username.'"')->row_array();
+    $email = strtolower($this->input->post('email'));
+    $ambil = $this->db->query('select * from tbl_admin_mybus where email_admin = "'.$email.'"')->row_array();
     $password = $this->input->post('password');
 
     if (password_verify($password,$ambil['password_admin'])) {
-    	$this->db->where('email_admin',$username);
+    	$this->db->where('email_admin',$email);
         $query = $this->db->get('tbl_admin_mybus');
             foreach ($query->result() as $row) {
                 $sess = array(
@@ -70,7 +70,6 @@ class Login_mybus extends CI_Controller {
                     'alamat_admin'	=> $row->alamat_admin,
                     'level'	=> $row->level_admin
                 );
-                // die(print_r($sess));
                 $this->session->set_userdata($sess);
                 redirect('backend/home_mybus');
             }

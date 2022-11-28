@@ -20,7 +20,7 @@ class Home_mybus extends CI_Controller {
 		$this->load->view('backend/home', $data);
 	}
 	function getsecurity($value=''){
-		$username = $this->session->userdata('email_admin');
+		$username = $this->session->userdata('username_admin');
 		if (empty($username)) {
 			$this->session->sess_destroy();
 			redirect('backend/login_mybus');

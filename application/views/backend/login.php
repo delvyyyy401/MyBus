@@ -40,7 +40,7 @@
                   </div>
                   <form class="user" method="post" action="<?php echo base_url('backend/login_mybus/cekuser') ?>">
                     <div class="form-group">
-                      <input required="" type="text" class="form-control form-control-user" name="username" aria-describedby="emailHelp" placeholder="Email">
+                      <input required="" type="email" class="form-control form-control-user" name="email" aria-describedby="emailHelp" placeholder="Email">
                     </div>
                     <div class="form-group">
                       <input required="" type="password" class="form-control form-control-user" name="password" placeholder="Password">

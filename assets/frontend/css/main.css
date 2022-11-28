@@ -2208,17 +2208,17 @@ body.mobile-nav-active #mobile-nav-toggle {
 .testimonial-area .overlay-bg,
 .single-service:hover,
 .about-right .overlay-bg {
-	background-image: -moz-linear-gradient(0deg, #62bdfc 0%, #8490ff 100%);
-	background-image: -webkit-linear-gradient(0deg, #62bdfc 0%, #8490ff 100%);
-	background-image: -ms-linear-gradient(0deg, #62bdfc 0%, #8490ff 100%)
+	background-image: -moz-linear-gradient(0deg, #ea6756 0%, #dc907d 100%);
+	background-image: -webkit-linear-gradient(0deg, #ea6756 0%, #dc907d 100%);
+	background-image: -ms-linear-gradient(0deg, #ea6756 0%, #dc907d 100%)
 }
 
 .p1-gradient-color,
 .single-fact h1 {
-	background: -moz-linear-gradient(0deg, #62bdfc 0%, #8490ff 100%);
-	background: -webkit-linear-gradient(0deg, #62bdfc 0%, #8490ff 100%);
-	background: -ms-linear-gradient(0deg, #62bdfc 0%, #8490ff 100%);
-	-webkit-background-clip: text;
+	background: -moz-linear-gradient(0deg, #ea6756 0%, #dc907d 100%);
+	background: -webkit-linear-gradient(0deg, #ea6756 0%, #dc907d 100%);
+	background: -ms-linear-gradient(0deg, #ea6756 0%, #dc907d 100%);
+	/* -webkit-background-clip: text; */
 	-webkit-text-fill-color: transparent
 }
 
@@ -2277,11 +2277,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .danger-btn.white:hover {
 	background: #fff;
-	color: #8490ff
+	color: #f06662;
 }
 
 .danger-btn.white:hover span {
-	color: #8490ff
+	color: #f06662;
 }
 
 .overlay {
@@ -2437,7 +2437,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .single-testimonial h4:hover {
-	color: #8490ff;
+	color: #f06662;
 	cursor: pointer
 }
 
@@ -2457,7 +2457,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 	cursor: pointer;
 	border-style: solid;
 	border-width: 2px;
-	border-color: #6a9ddc
+	border-color: #f06662;
 }
 
 @media (max-width: 800px) {
@@ -2752,25 +2752,25 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area .number {
-	color: #8490ff;
+	color: #f06662;
 	font-size: 24px;
 	font-weight: 600;
 	line-height: 30px
 }
 
 .footer-area .genric-btn {
-	background: #8490ff;
+	background: #f06662;
 	border: none;
 	border-radius: 57px;
 	height: 36px
 }
 
 .footer-area .danger-btn {
-	background-color: #8490ff
+	background-color: #f06662;
 }
 
 .footer-area .danger-btn:hover .lnr {
-	color: #8490ff
+	color: #f06662;
 }
 
 .footer-area .footer-bottom {
@@ -2778,7 +2778,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area .footer-bottom a {
-	color: #8490ff
+	color: #f06662;
 }
 
 .footer-area .footer-bottom .footer-social {
@@ -2796,7 +2796,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area .footer-bottom .footer-social a:hover {
-	background-color: #8490ff
+	background-color: #f06662;
 }
 
 .footer-area .footer-bottom .footer-social i {
@@ -2846,7 +2846,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .single-footer-widget .navbar-form .genric-btn:hover {
-	background-color: #8490ff
+	background-color: #f06662;
 }
 
 .single-footer-widget .navbar-form .genric-btn:hover .lnr {
@@ -2865,7 +2865,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .generic-banner {
 	margin-top: 60px;
-	background-color: #8490ff;
+	background-color: #f06662;
 	text-align: center
 }
 
