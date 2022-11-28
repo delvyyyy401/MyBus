@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="assets/img/logobus.png">
+		<link rel="shortcut icon" href="assets/img/mybus.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -47,8 +47,6 @@
 								<div class="card-body" align="left">
 									<div class="row">
 										<div class="col-sm-8">
-											<h5 class="card-title">Nomor KTP</h5>
-											<p class="card-text"><?php echo $profile['no_ktp_pelanggan'] ?></p>
 											<h5 class="card-title">Nama</h5>
 											<p class="card-text"><?php echo $profile['nama_pelanggan'] ?></p>
 											<h5 class="card-title">Email</h5>

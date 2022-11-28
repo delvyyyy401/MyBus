@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="assets/img/logobus.png">
+		<link rel="shortcut icon" href="assets/img/mybus.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -20,6 +20,7 @@
 		<style type="text/css">
 		.combined {
 		-webkit-text-stroke: 1px black;
+		font-family: optima, sans-serif;
 		color: white;}
 		
 		</style>
@@ -32,10 +33,10 @@
 		<section class="banner-area relative section-gap relative" id="home">
 			<div class="container">
 				<div class="row fullscreen d-flex align-items-center justify-content-end">
-					<div class="banner-content col-lg-7 col-md-12">
+					<div class="banner-content col-lg-5 col-md-12">
 							<h2 class="combined" >
-						My Bus<br>
-						Murah, Mudah, dan Nyaman.<br><br>				
+								My Bus<br>
+								Murah, Mudah, dan Nyaman.<br><br>				
 							</h2>
 						<a href="<?php echo base_url() ?>tiket_mybus" class="danger-btn header-btn text-uppercase">Cari & Pesan Tiket</a>
 					</div>
@@ -64,9 +65,9 @@
 					<div class="col-lg-4 col-md-6">
 						<div class="single-service">
 							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/a3.png" width="100" height="100" alt="">
-							<h4>Pilih bis dan tempat duduk anda</h4>
+							<h4>Pilih bus dan tempat duduk anda</h4>
 							<p>
-								Pilih bis, tempat duduk, tempat keberangkatan, tujuan, isi rincian penumpang dan klik 'Pembayaran'
+								Pilih bus, tempat duduk, tempat keberangkatan, tujuan, isi rincian penumpang dan klik 'Pembayaran'
 							</p>
 						</div>
 					</div>

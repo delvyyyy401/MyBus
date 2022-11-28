@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="assets/img/logobus.png">
+		<link rel="shortcut icon" href="assets/img/mybus.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -24,18 +24,21 @@
 	<body class="">
 		<!-- navbar -->
 		<?php $this->load->view('frontend/include/base_nav'); ?>
-		<section class="generic-banner">
+		<section class="service-area section-gap relative">
+			<div class="overlay overlay-bg"></div>
 			<div class="container">
 				<div class="row height align-items-center justify-content-center">
 					<div class="col-lg-5">
 						<div class="card card-login mx-auto mt-10">
-							<div class="card-header">Login</div>
+							<div class="card-header">
+								<i class="fa fa-user"></i> Login
+							</div>
 							<div class="card-body" align="left">
 								<?php echo $this->session->flashdata('pesan'); ?>
-								<form action="<?php echo base_url() ?>login_41518110070/cekuser" method="post">
+								<form action="<?php echo base_url() ?>login_mybus/cekuser" method="post">
 									<div class="form-group">
 										<div class="form-label-group">
-											<input type="text" id="username" name="username" class="form-control" placeholder="username" required="required" autofocus="autofocus">
+											<input type="email" id="email" name="email" class="form-control" placeholder="Email" required="required" autofocus="autofocus">
 										</div>
 									</div>
 									<div class="form-group">
@@ -54,7 +57,7 @@
 									<button class="btn btn-danger btn-block">Masuk</button>
 								</form>
 								<div class="text-center">
-									<p><a class="d-block small mt-3" href="<?php echo base_url() ?>login_41518110070/daftar">Daftar</a>									
+									<p><a class="d-block small mt-3" href="<?php echo base_url() ?>login_mybus/daftar">Daftar</a>									
 								</div>
 							</div>
 						</div>

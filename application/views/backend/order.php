@@ -22,7 +22,7 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered-center" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>No</th>
@@ -50,17 +50,15 @@
                     <?php if ($row['status_order'] == '1') { ?>
                           <td class="btn-danger"> Menunggu Konformasi </td> 
                           <?php } elseif($row['status_order'] == '2') { ?>
-                          <td class="btn-success"> Terbayar </td>
+                          <td class="btn-success">Terbayar</td>
                         <?php } ?>
                     <td>
                     <?php if ($row['status_order'] == '1') { ?>
                       <a href="<?php echo base_url('backend/order_mybus/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-warning">View</a>
                     <?php } elseif($row['status_order'] == '2') { ?>
                       <a href="<?php echo base_url('backend/order_mybus/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-warning">View</a>
-                      <a href="<?php echo base_url('backend/konfirmasi_mybus/viewkonfirmasi/'.$row['kd_order']) ?>" class="btn btn btn-danger">Bukti TF</a></td>
+                      <a href="<?php echo base_url('backend/konfirmasi_mybus/viewkonfirmasi/'.$row['kd_order']) ?>" class="btn btn btn-danger">Bukti</a></td>
                     <?php } ?>
-                    
-                    
                   </tr>
                 <?php } ?>
             </tbody>

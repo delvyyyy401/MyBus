@@ -18,12 +18,12 @@ class Profile_mybus extends CI_Controller {
 		$id = $this->input->post('kode');
 		$where = array('kd_pelanggan' => $id );
 		$update = array(
-			'no_ktp_pelanggan'			=> $this->input->post('ktp'),
-			'nama_pelanggan'  => $this->input->post('nama'),
-			'email_pelanggan'	    	=> $this->input->post('email'),
-			'img_pelanggan'		=> 'assets/frontend/img/default.png',
-			'alamat_pelanggan'		=> $this->input->post('alamat'),
-			'telpon_pelanggan'		=> $this->input->post('hp'),
+			'no_ktp_pelanggan'	=> $this->input->post('ktp'),
+			'nama_pelanggan'	=> $this->input->post('nama'),
+			'email_pelanggan'   => $this->input->post('email'),
+			'img_pelanggan'		=> 'assets/frontend/img/foto.png',
+			'alamat_pelanggan'	=> $this->input->post('alamat'),
+			'telpon_pelanggan'	=> $this->input->post('hp'),
 			 );
 		$this->db->update('tbl_pelanggan_mybus', $update,$where);
 		$this->session->set_flashdata('message', 'swal("Berhasil", "Data Di Edit", "success");');

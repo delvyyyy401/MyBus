@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/img/logobus.png">
+    <link rel="shortcut icon" href="assets/img/mybus.png">
     <title><?php echo $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
@@ -93,9 +93,7 @@
                            </select>
                           <?php } elseif($tiket[0]['status_order'] == '2') { ?>
                             <p class="btn "><b class="btn btn-default">Sudah Bayar</b></p>
-
                         <?php } ?>
-                     
                     </div>
                   </div>
                   <div class="row form-group">
@@ -107,10 +105,10 @@
                   </div>
                 </div>
               </div>
-              <hr><a class="btn btn-default" href="<?php echo base_url().'backend/order_mybus' ?>"> Kembali</a>
+              <hr><a class="btn btn-default" href="<?php echo base_url().'backend/order_mybus' ?>">Kembali</a>
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<?php if ($tiket[0]['status_order'] == '1') { ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-info">Proses</button>
-            <?php }else{ ?>
-              <a class="btn btn-success"> Cetak Eticket</a>
+                <?php }else{ ?>
+              <a class="btn btn-success" href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>">Cetak Eticket</a>
                         <?php } ?>
             </div>
           </div>

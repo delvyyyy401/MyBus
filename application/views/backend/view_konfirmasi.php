@@ -148,7 +148,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Bukti TF</label>
+                    <label for="" class="col-sm-4 control-label">Bukti Transfer</label>
                     <div class="col-sm-8">
                       <img id="myImg" src="<?php echo base_url($row['photo_konfirmasi']) ?>" alt="<?php echo $row['nama_konfirmasi'] ?>" style="width:100%;max-width:300px">
                     </div>

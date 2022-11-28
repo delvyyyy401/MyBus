@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/img/logobus.png">
+    <link rel="shortcut icon" href="assets/img/mybus.png">
     <title><?php echo $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
@@ -38,7 +38,6 @@
             </div>
             <hr>
                         <a class="btn btn-default" href="javascript:history.back()"> Kembali</a>
-
           </div>
         </form>
       </div>

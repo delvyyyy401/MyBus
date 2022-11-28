@@ -1,58 +1,5 @@
-/*!
- * Select2 Bootstrap Theme v0.1.0-beta.10 (https://select2.github.io/select2-bootstrap-theme)
- * Copyright 2015-2017 Florian Kissling and contributors (https://github.com/select2/select2-bootstrap-theme/graphs/contributors)
- * Licensed under MIT (https://github.com/select2/select2-bootstrap-theme/blob/master/LICENSE)
- */
-
 .select2-container--bootstrap {
   display: block;
-  /*------------------------------------*      #COMMON STYLES
-  \*------------------------------------*/
-  /**
-   * Search field in the Select2 dropdown.
-   */
-  /**
-   * No outline for all search fields - in the dropdown
-   * and inline in multi Select2s.
-   */
-  /**
-   * Adjust Select2's choices hover and selected styles to match
-   * Bootstrap 3's default dropdown styles.
-   *
-   * @see http://getbootstrap.com/components/#dropdowns
-   */
-  /**
-   * Clear the selection.
-   */
-  /**
-   * Address disabled Select2 styles.
-   *
-   * @see https://select2.github.io/examples.html#disabled
-   * @see http://getbootstrap.com/css/#forms-control-disabled
-   */
-  /*------------------------------------*      #DROPDOWN
-  \*------------------------------------*/
-  /**
-   * Dropdown border color and box-shadow.
-   */
-  /**
-   * Limit the dropdown height.
-   */
-  /*------------------------------------*      #SINGLE SELECT2
-  \*------------------------------------*/
-  /*------------------------------------*    #MULTIPLE SELECT2
-  \*------------------------------------*/
-  /**
-   * Address Bootstrap control sizing classes
-   *
-   * 1. Reset Bootstrap defaults.
-   * 2. Adjust the dropdown arrow button icon position.
-   *
-   * @see http://getbootstrap.com/css/#forms-control-sizes
-   */
-  /* 1 */
-  /*------------------------------------*    #RTL SUPPORT
-  \*------------------------------------*/
 }
 
 .select2-container--bootstrap .select2-selection {
@@ -82,12 +29,6 @@
 
 .select2-container--bootstrap .select2-search__field {
   outline: 0;
-  /* Firefox 18- */
-  /**
-     * Firefox 19+
-     *
-     * @see http://stackoverflow.com/questions/24236240/color-for-styled-placeholder-text-is-muted-in-firefox
-     */
 }
 
 .select2-container--bootstrap .select2-search__field::-webkit-input-placeholder {
@@ -109,17 +50,6 @@
 
 .select2-container--bootstrap .select2-results__option {
   padding: 6px 12px;
-  /**
-     * Disabled results.
-     *
-     * @see https://select2.github.io/examples.html#disabled-results
-     */
-  /**
-     * Hover state.
-     */
-  /**
-     * Selected state.
-     */
 }
 
 .select2-container--bootstrap .select2-results__option[role=group] {
@@ -137,7 +67,7 @@
 }
 
 .select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
-  background-color: #337ab7;
+  background-color: #ff6767;
   color: #fff;
 }
 
@@ -196,12 +126,7 @@
 }
 
 .select2-container--bootstrap.select2-container--open {
-  /**
-     * Make the dropdown arrow point up while the dropdown is visible.
-     */
-  /**
-     * Handle border radii of the container when the dropdown is showing.
-     */
+
 }
 
 .select2-container--bootstrap.select2-container--open .select2-selection .select2-selection__arrow b {
@@ -316,15 +241,6 @@
   min-height: 34px;
   padding: 0;
   height: auto;
-  /**
-     * Make Multi Select2's choices match Bootstrap 3's default button styles.
-     */
-  /**
-     * Minus 2px borders.
-     */
-  /**
-     * Clear the selection.
-     */
 }
 
 .select2-container--bootstrap .select2-selection--multiple .select2-selection__rendered {
@@ -565,18 +481,6 @@
   margin-right: auto;
 }
 
-/*------------------------------------*  #ADDITIONAL GOODIES
-\*------------------------------------*/
-/**
- * Address Bootstrap's validation states
- *
- * If a Select2 widget parent has one of Bootstrap's validation state modifier
- * classes, adjust Select2's border colors and focus states accordingly.
- * You may apply said classes to the Select2 dropdown (body > .select2-container)
- * via JavaScript match Bootstraps' to make its styles match.
- *
- * @see http://getbootstrap.com/css/#forms-control-validation
- */
 .has-warning .select2-dropdown,
 .has-warning .select2-selection {
   border-color: #8a6d3b;
@@ -637,15 +541,6 @@
   border-top-color: #2b542c;
 }
 
-/**
- * Select2 widgets in Bootstrap Input Groups
- *
- * @see http://getbootstrap.com/components/#input-groups
- * @see https://github.com/twbs/bootstrap/blob/master/less/input-groups.less
- */
-/**
- * Reset rounded corners
- */
 .input-group > .select2-hidden-accessible:first-child + .select2-container--bootstrap > .selection > .select2-selection,
 .input-group > .select2-hidden-accessible:first-child + .select2-container--bootstrap > .selection > .select2-selection.form-control {
   border-bottom-right-radius: 0;
@@ -697,15 +592,6 @@
   vertical-align: top;
 }
 
-/**
- * Temporary fix for https://github.com/select2/select2-bootstrap-theme/issues/9
- *
- * Provides `!important` for certain properties of the class applied to the
- * original `<select>` element to hide it.
- *
- * @see https://github.com/select2/select2/pull/3301
- * @see https://github.com/fk/select2/commit/31830c7b32cb3d8e1b12d5b434dee40a6e753ada
- */
 .form-control.select2-hidden-accessible {
   position: absolute !important;
   width: 1px !important;

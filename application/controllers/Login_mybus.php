@@ -18,12 +18,12 @@ class Login_mybus extends CI_Controller {
 		redirect(base_url('login_mybus'));
 	}
 	public function cekuser(){
-	$username = strtolower($this->input->post('username'));
-    $ambil = $this->db->query('select * from tbl_pelanggan_mybus where username_pelanggan = "'.$username.'"')->row_array();
+	$email = strtolower($this->input->post('email'));
+    $ambil = $this->db->query('select * from tbl_pelanggan_mybus where email_pelanggan = "'.$email.'"')->row_array();
     $password = $this->input->post('password');
 		if ($ambil) {
 				if (password_verify($password,$ambil['password_pelanggan'])) {
-		    	$this->db->where('username_pelanggan',$username);
+		    	$this->db->where('email_pelanggan',$email);
 		        $query = $this->db->get('tbl_pelanggan_mybus');
 		            foreach ($query->result() as $row) {
 		                $sess = array(

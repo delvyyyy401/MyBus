@@ -33,7 +33,7 @@
                   <th>Nama BANK </th>
                   <th>Nomor Rekening</th>
                   <th>Total Harga</th>
-                  <th>Bukti TF</th>
+                  <th>Bukti</th>
                 </tr>
               </thead>
               <tbody>

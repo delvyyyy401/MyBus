@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login My Bus</title>
+  <title>Login Admin My Bus</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url() ?>assets/backend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
               <div class="col-lg-11">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Login My Bus</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Login Administrator My Bus</h1>
                   </div>
                   <form class="user" method="post" action="<?php echo base_url('backend/login_mybus/cekuser') ?>">
                     <div class="form-group">
