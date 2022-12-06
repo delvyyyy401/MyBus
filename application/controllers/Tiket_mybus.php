@@ -128,7 +128,7 @@ class Tiket_mybus extends CI_Controller {
 				'tgl_berangkat_order' => $tglberangkat,
 				'no_kursi_order'		=> $kursi[$i],
 				'nama_kursi_order' => $nama[$i],
-				'umur_kursi_order' => $tahun[$i],
+				'umur_kursi_order' => $tahun,
 				'no_ktp_order'	=> $no_ktp,
 				'no_tlpn_order'	=> $hp,
 				'alamat_order'	=> $alamat,
@@ -181,7 +181,6 @@ class Tiket_mybus extends CI_Controller {
 	}
 	public function konfirmasi($value='',$harga=''){
 		$this->getsecurity();
-		// die(print_r($value));
 		$data['id'] = $value;
 		$data['total'] = $harga;
 		$this->load->view('frontend/konfirmasi', $data);

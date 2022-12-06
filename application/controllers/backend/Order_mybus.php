@@ -61,7 +61,7 @@ class Order_mybus extends CI_Controller {
 				'kd_order' => $id,
 				'nama_tiket' => $nama[$i],
 				'kursi_tiket' => $kursi[$i],
-				'umur_tiket' => $umur[$i],
+				'umur_tiket' => $umur,
 				'asal_beli_tiket' => $asal,
 				'harga_tiket' => $harga,
 				'status_tiket' => $status,

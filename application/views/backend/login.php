@@ -11,6 +11,8 @@
   <meta name="author" content="">
 
   <title>Login Admin My Bus</title>
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="assets/img/mybus.png">
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url() ?>assets/backend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?php echo $title ?></title>
+    <!-- Favicon-->
+		<link rel="shortcut icon" href="assets/img/mybus.png">
     <!-- css -->
     <link rel="stylesheet" href="<?php echo base_url('assets/frontend/timepicker') ?>/css/bootstrap-material-datetimepicker.css" />
     <?php $this->load->view('backend/include/base_css'); ?>

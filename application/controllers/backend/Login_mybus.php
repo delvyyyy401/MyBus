@@ -74,7 +74,7 @@ class Login_mybus extends CI_Controller {
                 redirect('backend/home_mybus');
             }
     }else{
-    	$this->session->set_flashdata('message', 'swal("Gagal", "Email/Password Salah", "error");');
+    	$this->session->set_flashdata('message', 'swal("Something Wrong!", "Email atau Password Salah", "error");');
     	redirect('backend/login_mybus');
     	}
 	}

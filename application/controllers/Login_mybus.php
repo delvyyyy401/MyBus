@@ -62,20 +62,20 @@ class Login_mybus extends CI_Controller {
 	public function daftar(){
 		$this->form_validation->set_rules('nomor', 'Nomor', 'trim|required|is_unique[tbl_pelanggan_mybus.telpon_pelanggan]',array(
 			'required' => 'Nomor HP Wajib Di isi.',
-			'is_unique' => 'Nomor Sudah Di Gunakan.'
+			'is_unique' => 'Nomor Sudah di Gunakan.'
 			 ));
 		$this->form_validation->set_rules('name', 'Name', 'trim|required',array(
-			'required' => 'Nama Wajib Di isi.',
+			'required' => 'Nama Wajib di isi.',
 			 ));
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|is_unique[tbl_pelanggan_mybus.username_pelanggan]',array(
-			'required' => 'Username Wajib Di isi.',
-			'is_unique' => 'Username Sudah Di Gunakan.'
+			'required' => 'Username Wajib di isi.',
+			'is_unique' => 'Username Sudah di Gunakan.'
 			 ));
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[tbl_pelanggan_mybus.email_pelanggan]',array(
-			'required' => 'Email Wajib Di isi.',
+			'required' => 'Email Wajib di isi.',
 			'valid_email' => 'Masukan Email Dengan Benar',
-			'is_unique' => 'Email Sudah Di Gunakan.'
+			'is_unique' => 'Email Sudah di Gunakan.'
 			 ));
 		$this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[8]|matches[password2]',array(
 			'matches' => 'Password Tidak Sama.',

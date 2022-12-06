@@ -10,6 +10,8 @@
   <meta name="author" content="">
 
   <title><?php echo $title ?></title>
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="assets/img/mybus.png">
 
   <!-- css -->
   <?php $this->load->view('backend/include/base_css'); ?>
