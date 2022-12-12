@@ -10,19 +10,17 @@ class Konfirmasi_mybus extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 	}
 	function getsecurity($value=''){
-		$username = $this->session->userdata('email_admin');
+		$username = $this->session->userdata('username_admin');
 		if (empty($username)) {
 			$this->session->sess_destroy();
 			redirect('backend/login_mybus');
 		}
 	}
-	
 	public function index(){
 	$data['title'] = "List Konfirmasi";
 	$data['konfirmasi'] = $this->db->query("SELECT * FROM tbl_konfirmasi_mybus group by kd_konfirmasi")->result_array();
 	$this->load->view('backend/konfirmasi', $data);	
 	}
-
 	public function viewkonfirmasi($id=''){
 	 $sqlcek = $this->db->query("SELECT * FROM tbl_konfirmasi_mybus WHERE kd_order ='".$id."'")->result_array();
 	 $data['title'] = "View Konfirmasi";

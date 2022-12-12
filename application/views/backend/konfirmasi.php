@@ -8,8 +8,6 @@
     <meta name="author" content="">
     
     <title><?php echo $title ?></title>
-    <!-- Favicon-->
-		<link rel="shortcut icon" href="assets/img/mybus.png">
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -18,7 +16,7 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">List Konfirmasi</h1>
+      <h1 class="h3 mb-2 text-gray-800">List Tiket</h1>
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -35,7 +33,7 @@
                   <th>Nama BANK </th>
                   <th>Nomor Rekening</th>
                   <th>Total Harga</th>
-                  <th>Bukti</th>
+                  <th>Bukti TF</th>
                 </tr>
               </thead>
               <tbody>

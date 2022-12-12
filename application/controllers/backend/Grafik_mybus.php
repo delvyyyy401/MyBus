@@ -10,5 +10,5 @@ class Grafik extends CI_Controller {
     Public function lihat_grafik(){
         $data['data_rawatinap'] = $this->model_grafik->graph_rawatinap();
         $this->load->view('backend/laporan/laporan_grafik',$data);
-    }
-}
+    } // tutup fucntion
+} // tutup controller

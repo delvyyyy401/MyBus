@@ -36,7 +36,7 @@
 					<div class="banner-content col-lg-5 col-md-12">
 							<h2 class="combined" >
 								My Bus<br>
-								Murah, Mudah, dan Nyaman.<br><br>				
+								Aman, Mudah, Terpercaya<br><br>				
 							</h2>
 						<a href="<?php echo base_url() ?>tiket_mybus" class="danger-btn header-btn text-uppercase">Cari & Pesan Tiket</a>
 					</div>

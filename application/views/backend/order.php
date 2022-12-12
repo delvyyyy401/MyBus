@@ -7,8 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?php echo $title ?></title>
-    <!-- Favicon-->
-		<link rel="shortcut icon" href="assets/img/mybus.png">
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -16,15 +14,15 @@
     <!-- navbar -->
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
-    <div class="container-fluid">      
-      <h1 class="h3 mb-2 text-gray-800">List Order & Pending</h1>
+    <div class="container-fluid">
+      <h1 class="h3 mb-2 text-gray-800">List Order</h1>
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered-center" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>No</th>
@@ -50,17 +48,11 @@
                     <?php $sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus WHERE kd_order LIKE '".$row['kd_order']."'")->result_array(); ?>
                     <td><?php echo count($sqlcek); ?></td>
                     <?php if ($row['status_order'] == '1') { ?>
-                          <td class="btn-danger"> Menunggu Konformasi </td> 
+                          <td class="btn-danger"> Tunggu Konfirmasi</td> 
                           <?php } elseif($row['status_order'] == '2') { ?>
-                          <td class="btn-success">Terbayar</td>
+                          <td class="btn-success"> Sudah Bayar</td>
                         <?php } ?>
-                    <td>
-                    <?php if ($row['status_order'] == '1') { ?>
-                      <a href="<?php echo base_url('backend/order_mybus/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-warning">View</a>
-                    <?php } elseif($row['status_order'] == '2') { ?>
-                      <a href="<?php echo base_url('backend/order_mybus/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-warning">View</a>
-                      <a href="<?php echo base_url('backend/konfirmasi_mybus/viewkonfirmasi/'.$row['kd_order']) ?>" class="btn btn btn-danger">Bukti</a></td>
-                    <?php } ?>
+                    <td><a href="<?php echo base_url('backend/order_mybus/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-danger">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

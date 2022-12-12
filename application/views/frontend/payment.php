@@ -84,7 +84,7 @@
 											<img src="<?php echo base_url().$tiket[0]['photo_bank'] ?>" height="50" width="100" alt="Icon Bank" />
 										</div>
 										<div class="col-md-6 col-8 mb-xs-10 rekening-text">
-											<p ><input type="hidden" name="" id="myInput" value="<?php echo $tiket[0]['nomrek_bank']; ?> an <?php echo $tiket[0]['nama_bank'] ?>"><h4 id="myInput"><?php echo number_format((float)($tiket[0]['nomrek_bank']),0,"-","-"); ?> an <?php echo $tiket[0]['nasabah_bank'] ?></h4></p>
+											<p ><input type="hidden" name="" id="myInput" value="<?php echo $tiket[0]['nomrek_bank']; ?> an <?php echo $tiket[0]['nama_bank'] ?>"><h4 id="myInput"><?php echo number_format((float)($tiket[0]['nomrek_bank']),0,"-","-"); ?> an <?php echo $tiket[0]['nama_bank'] ?></h4></p>
 										</div>
 									</div>
 								</div>

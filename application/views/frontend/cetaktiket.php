@@ -84,19 +84,19 @@
   <table width="100%">
     <tr>
         <td align="left">
-            <h1>E-TICKET MY BUS</h1>
-            <pre>
-                <b><span style='font-size:15px'>Detail Pesanan</span></b>
-                </br>
-                Kode Order : <?php echo $cetak[0]['kd_order'];?></br>
-                Kode Jadwal : <?php echo $cetak[0]['kd_jadwal'];?></br>
-                Beli : <?php echo $cetak[0]['tgl_beli_order'];?></br>
-                Nama Pemesan : <?php echo $cetak[0]['nama_order'];?></br>
-                Jadwal : <?php echo hari_indo(date('N',strtotime($cetak[0]['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$cetak[0]['tgl_berangkat_order'].'')));?><br>
-                Jam Berangkat : <?php echo date('H:i',strtotime($cetak[0]['jam_berangkat_jadwal']))?></br>
-                Berangkat Dari : <?php echo $asal['nama_terminal_tujuan'].'-'.strtoupper($asal['kota_tujuan']);?></br>
-                Tujuan Ke : <?php echo $cetak[0]['nama_terminal_tujuan'].' - '.strtoupper($cetak[0]['kota_tujuan']); ?>
-            </pre>
+            <h1>E-TICKET My Bus</h1>
+            <p>
+                <b><span style='font-size:15px'>Detail Pesanan </span></b>
+                <br>
+                <br>Kode Order : <?php echo $cetak[0]['kd_order'];?></br>
+                <br>Kode Jadwal : <?php echo $cetak[0]['kd_jadwal'];?></br>
+                <br>Beli : <?php echo $cetak[0]['tgl_beli_order'];?></br>
+                <br>Nama Pemesan : <?php echo $cetak[0]['nama_order'];?></br>
+                <br>Jadwal : <?php echo hari_indo(date('N',strtotime($cetak[0]['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$cetak[0]['tgl_berangkat_order'].'')));?></br>
+                <br>Jam Berangkat : <?php echo date('H:i',strtotime($cetak[0]['jam_berangkat_jadwal']))?></br>
+                <br>Berangkat Dari : <?php echo $asal['nama_terminal_tujuan'].'-'.strtoupper($asal['kota_tujuan']);?></br>
+                <br>Tujuan Ke : <?php echo $cetak[0]['nama_terminal_tujuan'].' - '.strtoupper($cetak[0]['kota_tujuan']); ?>
+            </p>
         </td>
         <td valign="top"><img src="<?php echo base_url($cetak[0]['qrcode_order']) ?>" alt="" width="200"/></td>
     </tr>
@@ -131,6 +131,5 @@
         </tr>
     </tfoot>
   </table>
-
 </body>
 </html>

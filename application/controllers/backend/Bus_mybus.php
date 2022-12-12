@@ -13,14 +13,12 @@ class Bus_mybus extends CI_Controller {
 	// die(print_r($data));
 	$this->load->view('backend/bus', $data);	
 	}
-	
 	public function viewbus($id=''){
 		$data['title'] = "View Bus";
 		$data['bus'] = $this->db->query("SELECT * FROM tbl_bus WHERE kd_bus = '".$id."'")->row_array();
 		// die(print_r($data));
 		$this->load->view('backend/view_bus', $data);
 	}
-
 	public function tambahbus(){
 		$kode = $this->getkod_model->get_kodbus();
 		$data = array(
@@ -35,20 +33,5 @@ class Bus_mybus extends CI_Controller {
 		$this->session->set_flashdata('message', 'swal("Berhasil", "Data Bus Di Simpan", "success");');
 		redirect('backend/bus_mybus');
 	}
-
-	public function deletebus($id=''){
-		$sqlcek = $this->db->query("DELETE FROM tbl_bus WHERE kd_bus ='".$id."'");
-	   	$this->session->set_flashdata('message', 'swal("Berhasil", "Data Jadwal Di Hapus", "success");');
-	   	redirect('backend/bus_mybus');
-   }
-
-   public function editstatus($id=''){
-	$kode = (trim(html_escape($this->input->post('kode'))));
-	$where = array('kd_bus' => $kode );
-	$update = array('status_bus' =>  $this->input->post('status'));
-	$this->db->update('tbl_bus', $update,$where);
-	$this->session->set_flashdata('message', 'swal("Berhasil", "Data Di Edit", "success");');
-	redirect('backend/bus_mybus/');
-}
 
 }

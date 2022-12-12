@@ -10,17 +10,16 @@ class Order_mybus extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 	}
 	function getsecurity($value=''){
-		if (empty($this->session->userdata('email_admin'))) {
+		if (empty($this->session->userdata('username_admin'))) {
 			$this->session->sess_destroy();
 			redirect('backend/login_mybus');
 		}
 	}
 	public function index(){
 		$data['title'] = "List Order";
- 		$data['order'] = $this->db->query("SELECT * FROM tbl_order_mybus WHERE status_order = '2' group by kd_order")->result_array();
+ 		$data['order'] = $this->db->query("SELECT * FROM tbl_order_mybus group by kd_order")->result_array();
 		$this->load->view('backend/order', $data);
 	}
-
 	public function vieworder($id=''){
 		$cek = $this->input->get('order').$id;
 	 	$sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus LEFT JOIN tbl_jadwal_mybus on tbl_order_mybus.kd_jadwal = tbl_jadwal_mybus.kd_jadwal WHERE kd_order ='".$cek."'")->result_array();
@@ -33,7 +32,6 @@ class Order_mybus extends CI_Controller {
     		redirect('backend/tiket_mybus');
 	 	}
 	}
-	
 	public function inserttiket($value=''){
 		$id = $this->input->post('kd_order');
 		$asal = $this->input->post('asal_beli');
@@ -61,13 +59,13 @@ class Order_mybus extends CI_Controller {
 				'kd_order' => $id,
 				'nama_tiket' => $nama[$i],
 				'kursi_tiket' => $kursi[$i],
-				'umur_tiket' => $umur,
+				'umur_tiket' => $umur[$i],
 				'asal_beli_tiket' => $asal,
 				'harga_tiket' => $harga,
 				'status_tiket' => $status,
 				'etiket_tiket' => $pdfFilePath,
 				'create_tgl_tiket' => date('Y-m-d'),
-				'create_admin_tiket' => $this->session->userdata('email_admin')
+				'create_admin_tiket' => $this->session->userdata('username_admin')
 			);
 		// die(print_r($simpan));
 		$this->db->insert('tbl_tiket_mybus', $simpan);

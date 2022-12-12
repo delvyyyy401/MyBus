@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="assets/img/mybus.png">
+		<link rel="shortcut icon" href="assets/img/logobus.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -14,7 +14,7 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title><?php echo $title ?></title>
+		<title>Arga Travel</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
 		<?php $this->load->view('frontend/include/base_css'); ?>
@@ -59,7 +59,7 @@
 									</tbody>
 								</table>
 								</div>
-								<a href="<?php echo base_url('tiket_mybus') ?>" class="btn btn-danger pull-left">Kembali </a>
+								<a href="<?php echo base_url('_mybus') ?>" class="btn btn-danger pull-left">Kembali </a>
 									</div>
 								</div>
 							</div>

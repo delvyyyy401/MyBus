@@ -18,7 +18,7 @@ class Bank_mybus extends CI_Controller {
 	}
 	public function index(){
 	$data['title'] = "Link BANK";
- 	$data['bank'] = $this->db->query("SELECT * FROM tbl_bank_mybus")->result_array();
+ 	$data['bank'] = $this->db->query("SELECT * FROM tbl_bank_mybus ")->result_array();
 		// die(print_r($data));
 	$this->load->view('backend/bank', $data);	
 	}

@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="assets/img/mybus.png">
+		<link rel="shortcut icon" href="assets/img/logobus.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -65,7 +65,7 @@
 										</select>
 										<!-- </div> -->
 									</div>
-									<a href="<?php echo base_url() ?>" class="btn btn-danger pull-left">Kembali </a>
+									<a href="<?php echo base_url() ?>home" class="btn btn-danger pull-left">Kembali </a>
 									<button type="submit" class="btn btn-danger pull-right">Cari </button>
 								</form>
 							</div>
