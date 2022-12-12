@@ -44,7 +44,7 @@
 										<input placeholder="Masukkan tanggal" type="text" class="form-control datepicker" name="tanggal" required="">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Asal (Saat Ini Baru Tersedia Pemberangkatan dari Jakarta)</label>
+										<label for="exampleInputEmail1">Asal</label>
 										<!-- <div class="default-select" id="default-select"> -->
 										<select name="asal" class="form-control js-example-basic-single" required >
 											<option value="" selected disabled="">Pilih Asal</option>
@@ -65,7 +65,7 @@
 										</select>
 										<!-- </div> -->
 									</div>
-									<a href="<?php echo base_url() ?>home" class="btn btn-danger pull-left">Kembali </a>
+									<a href="<?php echo base_url() ?>" class="btn btn-danger pull-left">Kembali </a>
 									<button type="submit" class="btn btn-danger pull-right">Cari </button>
 								</form>
 							</div>

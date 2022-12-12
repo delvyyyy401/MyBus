@@ -50,9 +50,9 @@ class Order_mybus extends CI_Controller {
 		$pelanggan = $this->db->query("SELECT email_pelanggan FROM tbl_pelanggan_mybus WHERE kd_pelanggan ='".$data['cetak'][0]['kd_pelanggan']."'")->row_array();
 		$pdfFilePath = "assets/backend/upload/etiket/".$id.".pdf";
 		$html = $this->load->view('frontend/cetaktiket', $data, TRUE);
-	    $this->load->library('m_pdf');
-		$this->m_pdf->pdf->WriteHTML($html);
-		$this->m_pdf->pdf->Output($pdfFilePath);
+	    // $this->load->library('m_pdf');
+		// $this->m_pdf->pdf->WriteHTML($html);
+		// $this->m_pdf->pdf->Output($pdfFilePath);
 		for ($i=0; $i < count($nama) ; $i++) { 
 			$simpan = array(
 				'kd_tiket' => $tiket[$i],

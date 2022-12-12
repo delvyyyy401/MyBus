@@ -14,7 +14,7 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Arga Travel</title>
+		<title>My Bus</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
 		<?php $this->load->view('frontend/include/base_css'); ?>
@@ -30,7 +30,12 @@
 						<!-- Default Card Example -->
 						<div class="card mb-5">
 							<div class="card-header">
-								<i class="fa fa-list-alt"></i> Daftar Berangkat
+								<div class="d-flex">
+									<i class="mr-auto p-2 fa fa-list-alt"></i> Daftar Berangkat
+									<label class='btn btn-danger'>
+										<a value='' autocomplete='off' disabled='disabled'>Tersedia Pemesanan Institusi</a>
+									</label>
+								</div>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -59,7 +64,7 @@
 									</tbody>
 								</table>
 								</div>
-								<a href="<?php echo base_url('_mybus') ?>" class="btn btn-danger pull-left">Kembali </a>
+								<a href="<?php echo base_url('tiket_mybus') ?>" class="btn btn-danger pull-left">Kembali </a>
 									</div>
 								</div>
 							</div>
