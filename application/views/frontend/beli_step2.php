@@ -26,29 +26,51 @@
 			<div class="overlay overlay-bg"></div>
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-4">
+					<div class="col-lg-5">
 						<!-- Default Card Example -->
-						<form action="<?php echo base_url() ?>tiket_mybus/gettiket/" method="post">
-						<input type="hidden" name="tgl" value="<?php echo $tglberangkat ?>">
-
-							<?php $i = 1; foreach ($kursi as $row ) { ?>
+						<?php if (count($kursi) > '4') { ?>
+							<form action="<?php echo base_url() ?>tiket_mybus/gettiket/" method="post">
+							<input type="hidden" name="tgl" value="<?php echo $tglberangkat ?>">
 							<div class="card mb-5">
 								<div class="card-header">
-									<i class="fa fa-id-card-o"></i> Kursi Nomor <?php echo $row; ?>
+									<i class="fa fa-id-card-o"></i> Pemesanan Institusi
 								</div>
 								<div class="card-body">
 									<div class="form-group">
-										<input type="text" id="" class="form-control" id="" name="nama[]" placeholder="Kursi nomor <?php echo $row ?> Atas Nama" required>
-										<input type="hidden" name="kursi[]" value="<?php echo $row ?>">
+										<input type="text" id="" class="form-control" id="" name="nama_institusi" placeholder="Nama Institusi" required>
+										<input type="hidden" name="kursi[]">
 									</div>
 									<div class="form-group">
-                                        <input name='tahun' required="" maxlength='64' class='form-control required' placeholder='Umur' type='number' value="">
-									</div>
+											<input name='tlp_institusi' required="" class='form-control required' placeholder='No Telepon' type='number' title='No telepon harus diisi.'>
+										</div>
+										<div class='form-group'>
+												<textarea name='alamat_institusi' cols='20' rows='3' id='alamat_institusi' required="" maxlength='256' class='form-control required' placeholder='Alamat Institusi' title='Alamat harus diisi.' ></textarea>
+											</div>
 								</div>
 							</div>
+							<?php }else{ ?>
+								<form action="<?php echo base_url() ?>tiket_mybus/gettiket/" method="post">
+								<input type="hidden" name="tgl" value="<?php echo $tglberangkat ?>">
+								<?php $i = 1; foreach ($kursi as $row ) { ?>
+									<div class="card mb-5">
+										<div class="card-header">
+											<i class="fa fa-id-card-o"></i> Kursi Nomor <?php echo $row; ?>
+										</div>
+										<div class="card-body">
+											<div class="form-group">
+												<input type="text" id="" class="form-control" id="" name="nama[]" placeholder="Kursi nomor <?php echo $row ?> Atas Nama" required>
+												<input type="hidden" name="kursi[]" value="<?php echo $row ?>">
+											</div>
+											<div class="form-group">
+												<input name='tahun' required="" class='form-control required' placeholder='Umur' type='number' title='Umur harus diisi.'>
+											</div>
+											
+										</div>
+									</div>
+								<?php } ?>
 							<?php } ?>
 						</div>
-						<div class="col-lg-5">
+						<div class="col-lg-4">
 							<!-- Default Card Example -->
 							<!-- Default Card Example -->
 							<div class="card mb-5">
@@ -56,28 +78,28 @@
 									<i class="fa fa-user"></i> Identitas Pemesan
 								</div>
 								<div class="card-body">
-									<div class='form-group'>
-										<div class='col-sm-12'>
-											<input name='no_ktp' required="" maxlength='64' class='form-control required' placeholder='NIK' type='text' title='Nomor ktp harus diisi.' value="<?php echo $this->session->userdata('ktp') ?>"></div>
-										</div>
+										<div class='form-group'>
+											<div class='col-sm-12'>
+												<input name='no_ktp' required="" maxlength='64' class='form-control required' placeholder='Nomor KTP' type='text' title='Nomor ktp harus diisi.' value="<?php echo $this->session->userdata('ktp') ?>"></div>
+											</div>
 										<div class='form-group'>
 											<div class='col-sm-12'>
 												<input name='nama_pemesan' required="" maxlength='64' class='form-control required' placeholder='Nama Pemesan' type='text' title='Nama Pemesan harus diisi.' value="<?php echo $this->session->userdata('nama_lengkap') ?>"></div>
 											</div>
-											<div class='form-group'>
-												<div class='col-sm-12'>
-													<input name='hp' required="" maxlength='16' class='form-control required' placeholder='Handphone' type='text' title='Handphone harus diisi.' value="<?php echo $this->session->userdata('telpon') ?>"></div>
-												</div>
-												<div class='form-group'>
-													<div class='col-sm-12'>
-													<textarea name='alamat' cols='20' rows='3' id='alamat' required="" maxlength='256' class='form-control required' placeholder='Alamat' title='Alamat harus diisi.' ><?php echo $this->session->userdata('alamat')?></textarea></div>
-												</div>
-												<div class='form-group'>
-													<div class='col-sm-12'>
-														<input name='email' required="" maxlength='64' class='form-control' placeholder='Email' type='text' value="<?php echo $this->session->userdata('email')?>"></div>
-													</div>
-												</div>
+										<div class='form-group'>
+											<div class='col-sm-12'>
+												<input name='hp' required="" maxlength='16' class='form-control required' placeholder='Handphone' type='text' title='Handphone harus diisi.' value="<?php echo $this->session->userdata('telpon') ?>"></div>
 											</div>
+										<div class='form-group'>
+											<div class='col-sm-12'>
+												<textarea name='alamat' cols='20' rows='3' id='alamat' required="" maxlength='256' class='form-control required' placeholder='Alamat' title='Alamat harus diisi.' ><?php echo $this->session->userdata('alamat')?></textarea></div>
+											</div>
+										<div class='form-group'>
+											<div class='col-sm-12'>
+												<input name='email' required="" maxlength='64' class='form-control' placeholder='Email' type='text' value="<?php echo $this->session->userdata('email')?>"></div>
+											</div>
+										</div>
+									</div>
 										</div>
 										<div class="col">
 											<div class="card">
@@ -85,7 +107,7 @@
 													<i class="fa fa-usd"></i> Metode Pembayaran
 												</div>
 												<div class="card-body">
-													<form action="<?php echo base_url() ?>tiket_mybus/cektiketmu" method="post">
+													<form action="<?php echo base_url() ?>tiket_mybus/cektiket" method="post">
 														<div class="form-group">
 															<label for="exampleInputEmail1">Pilih Bank </label>
 															<select class="form-control" name="bank" required>

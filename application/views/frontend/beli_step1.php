@@ -16,7 +16,7 @@
 		<!-- Site Title -->
 		<title>My Bus</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
 		<?php $this->load->view('frontend/include/base_css'); ?>
@@ -65,34 +65,32 @@
 										<td class='btn-group' width='139'>
 											<!--=================================================START 3A=========================================================-->
 											<label class='btn btn-default'>
-												<input name='kursi[]' value='1' id='1' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '1'), $kursi)) { echo "disabled checked";} ?>>&nbsp;1
+												<input name='kursi[]' value='1' id='1' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '1'), $kursi)) { echo "disabled checked";} ?>>&nbsp;1
 											</label>
 											<!--=================================================START 3A=========================================================-->
 											<label class='btn btn-default'>
-												<input name='kursi[]' value='2' id='2' onclick='cer(this)' autocomplete='off' type='checkbox'<?php if (in_array(array('no_kursi_order' => '2'), $kursi)) { echo "disabled checked";} ?>>&nbsp;2
+												<input name='kursi[]' value='2' id='2' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element"<?php if (in_array(array('no_kursi_order' => '2'), $kursi)) { echo "disabled checked";} ?>>&nbsp;2
 											</label>
 										</td>
 										<td class='btn-group' width='139'>
 											<!--=================================================START 3C=========================================================-->
-											<label class='btn btn-danger'>
-												<a value='' autocomplete='off' disabled='disabled'>SUPIR</a>
-											</label>
+											<button class="btn btn-danger" style="pointer-events: none;" type="button" disabled>   Supir   </button>
 										</td>
 									</tr>
 									<tr>
 										<td class='btn-group' width='139'>
 											<!--=================================================START 3A=========================================================-->
 											<label class='btn btn-default'>
-												<input name='kursi[]' value='3' id='3' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '3'), $kursi)) { echo "disabled checked";} ?>>&nbsp;3
+												<input name='kursi[]' value='3' id='3' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element"<?php if (in_array(array('no_kursi_order' => '3'), $kursi)) { echo "disabled checked";} ?>>&nbsp;3
 												</label>				<!--=================================================START 3B=========================================================-->
 												<label class='btn btn-default'>
-													<input name='kursi[]' value='4' id='4' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '4'), $kursi)) { echo "disabled checked";} ?>>&nbsp;4
+													<input name='kursi[]' value='4' id='4' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '4'), $kursi)) { echo "disabled checked";} ?>>&nbsp;4
 												</label>
 											</td>
 											<td class='btn-group' width='139'>
 												<!--=================================================START 3A=========================================================-->
 												<label class='btn btn-default'>
-													<input name='kursi[]' value='5' id='5' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '5'), $kursi)) { echo "disabled checked";} ?> >&nbsp;5
+													<input name='kursi[]' value='5' id='5' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '5'), $kursi)) { echo "disabled checked";} ?> >&nbsp;5
 												</label>
 											</td>
 										</tr>
@@ -100,19 +98,19 @@
 											<td class='btn-group' width='139'>
 												<!--=================================================START 3A=========================================================-->
 												<label class='btn btn-default'>
-													<input name='kursi[]' value='6' id='6' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '6'), $kursi)) { echo "disabled checked";} ?>>&nbsp;6
+													<input name='kursi[]' value='6' id='6' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element"  <?php if (in_array(array('no_kursi_order' => '6'), $kursi)) { echo "disabled checked";} ?>>&nbsp;6
 													</label>				<!--=================================================START 3B=========================================================-->
 													<label class='btn btn-default'>
-														<input name='kursi[]' value='7' id='7' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '7'), $kursi)) { echo "disabled checked";} ?>>&nbsp;7
+														<input name='kursi[]' value='7' id='7' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '7'), $kursi)) { echo "disabled checked";} ?>>&nbsp;7
 													</label>
 												</td>
 												<td class='btn-group' width='139'>
 													<!--=================================================START 3A=========================================================-->
 													<label class='btn btn-default'>
-														<input name='kursi[]' value='8' id='8' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '8'), $kursi)) { echo "disabled checked";} ?>>&nbsp;8
+														<input name='kursi[]' value='8' id='8' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '8'), $kursi)) { echo "disabled checked";} ?>>&nbsp;8
 													</label>
 													<label class='btn btn-default'>
-														<input name='kursi[]' value='9' id='9' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '9'), $kursi)) { echo "disabled checked";} ?>>&nbsp;9
+														<input name='kursi[]' value='9' id='9' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '9'), $kursi)) { echo "disabled checked";} ?>>&nbsp;9
 													</label>
 												</td>
 											</tr>
@@ -120,16 +118,16 @@
 												<td class='btn-group' width='139'>
 													<!--=================================================START 3A=========================================================-->
 													<label class='btn btn-default'>
-														<input name='kursi[]' value='10' id='10' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '10'), $kursi)) { echo "disabled checked";} ?>>&nbsp;10
+														<input name='kursi[]' value='10' id='10' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '10'), $kursi)) { echo "disabled checked";} ?>>&nbsp;10
 														</label>				<!--=================================================START 3B=========================================================-->
 														<label class='btn btn-default'>
-															<input name='kursi[]' value='11' id='11' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '11'), $kursi)) { echo "disabled checked";} ?>>&nbsp;11
+															<input name='kursi[]' value='11' id='11' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '11'), $kursi)) { echo "disabled checked";} ?>>&nbsp;11
 														</label>
 													</td>
 													<td class='btn-group' width='139'>
 														<!--=================================================START 3A=========================================================-->
 														<label class='btn btn-default'>
-															<input name='kursi[]' value='12' id='12' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '12'), $kursi)) { echo "disabled checked";} ?>>&nbsp;12
+															<input name='kursi[]' value='12' id='12' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '12'), $kursi)) { echo "disabled checked";} ?>>&nbsp;12
 														</label>
 													</td>
 												</tr>
@@ -137,16 +135,16 @@
 													<td class='btn-group' width='139'>
 														<!--=================================================START 3A=========================================================-->
 														<label class='btn btn-default'>
-															<input name='kursi[]' value='13' id='13' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '13'), $kursi)) { echo "disabled checked";} ?>>&nbsp;13
+															<input name='kursi[]' value='13' id='13' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '13'), $kursi)) { echo "disabled checked";} ?>>&nbsp;13
 															</label>				<!--=================================================START 3B=========================================================-->
 															<label class='btn btn-default'>
-																<input name='kursi[]' value='14' id='14' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '14'), $kursi)) { echo "disabled checked";} ?>>&nbsp;14
+																<input name='kursi[]' value='14' id='14' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '14'), $kursi)) { echo "disabled checked";} ?>>&nbsp;14
 															</label>
 														</td>
 														<td class='btn-group' width='139'>
 															<!--=================================================START 3A=========================================================-->
 															<label class='btn btn-default'>
-																<input name='kursi[]' value='15' id='15' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '15'), $kursi)) { echo "disabled checked";} ?>>&nbsp;15
+																<input name='kursi[]' value='15' id='15' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '15'), $kursi)) { echo "disabled checked";} ?>>&nbsp;15
 															</label>
 														</td>
 													</tr>
@@ -154,19 +152,19 @@
 														<td class='btn-group' width='139'>
 															<!--=================================================START 3A=========================================================-->
 															<label class='btn btn-default'>
-																<input name='kursi[]' value='16' id='16' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '16'), $kursi)) { echo "disabled checked";} ?>>&nbsp;16
+																<input name='kursi[]' value='16' id='16' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '16'), $kursi)) { echo "disabled checked";} ?>>&nbsp;16
 																</label>				<!--=================================================START 3B=========================================================-->
 																<label class='btn btn-default'>
-																	<input name='kursi[]' value='17' id='17' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '17'), $kursi)) { echo "disabled checked";} ?>>&nbsp;17
+																	<input name='kursi[]' value='17' id='17' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '17'), $kursi)) { echo "disabled checked";} ?>>&nbsp;17
 																</label>
 															</td>
 															<td class='btn-group' width='139'>
 																<!--=================================================START 3A=========================================================-->
 																<label class='btn btn-default'>
-																	<input name='kursi[]' value='18' id='18' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '18'), $kursi)) { echo "disabled checked";} ?>>&nbsp;18
+																	<input name='kursi[]' value='18' id='18' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '18'), $kursi)) { echo "disabled checked";} ?>>&nbsp;18
 																</label>
 																<label class='btn btn-default'>
-																	<input name='kursi[]' value='19' id='19' onclick='cer(this)' autocomplete='off' type='checkbox' <?php if (in_array(array('no_kursi_order' => '19'), $kursi)) { echo "disabled checked";} ?>>&nbsp;19
+																	<input name='kursi[]' value='19' id='19' onclick='cer(this)' autocomplete='off' type='checkbox' class="cb-element" <?php if (in_array(array('no_kursi_order' => '19'), $kursi)) { echo "disabled checked";} ?>>&nbsp;19
 																</label>
 															</td>
 														</tr>
@@ -185,9 +183,20 @@
 														<div class='btn-group'>
 															<a href="<?php echo base_url('tiket_mybus/cekjadwal/'.$tanggal.'/'.$asal['kd_tujuan'].'/'.$jadwal['kota_tujuan']) ?>" class='btn btn-default'>Kembali</a>
 															<input class="btn btn-danger pull-right" disabled="disabled" type="submit" value="Selanjutnya">
-															
 														</div>
 													</div>
+													<div class="alert alert-danger" role="alert">
+														<div class='btn-group'>
+														<div class="form-check">
+															<input class="form-check-input" name="all" type="checkbox" value="" id="checkall">
+															<label class="form-check-label" for="checkall">
+																Pesan Sebagai Institusi
+															</label>
+															</div>
+
+														</div>
+													</div>
+													<p></p>
 													<form>
 													</div>
 												</div>
@@ -197,20 +206,30 @@
 											<!-- start footer Area -->
 											<?php $this->load->view('frontend/include/base_footer'); ?>
 											<!-- js -->
+											
 											<script type="text/javascript">
+												   
+											$('#checkall').change(function () {
+												$('.cb-element').prop('checked',this.checked);
+											});
+
+											$('.cb-element').change(function () {
+											if ($('.cb-element:checked').length == $('.cb-element').length){
+											$('#checkall').prop('checked',true);
+											}
+											else {
+											$('#checkall').prop('checked',false);
+											}
+											});
+
 										     jQuery(document).ready(function(){
-									     
 									          var checkboxes = $("input[type='checkbox']"),
 									              submitButt = $("input[type='submit']");
-
 									          checkboxes.click(function() {
 									              submitButt.attr("disabled", !checkboxes.is(":checked"));
-												  
 									          });
-
 									         })
-									                                                  
-																					                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+									                						                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 										    </script>
 											<script type="text/javascript">
 											var count=0

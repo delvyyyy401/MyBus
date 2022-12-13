@@ -31,10 +31,18 @@
 						<div class="card mb-5">
 							<div class="card-header">
 								<div class="d-flex">
-									<i class="mr-auto p-2 fa fa-list-alt"></i> Daftar Berangkat
-									<label class='btn btn-danger'>
-										<a value='' autocomplete='off' disabled='disabled'>Tersedia Pemesanan Institusi</a>
-									</label>
+									<div class="mr-auto p-2"><i class="fa fa-list-alt"></i> Daftar Berangkat </div>
+									<?php for ($i=0; $i < count($jadwal)  ; $i++) { ?>
+										<?php
+											$sisa = $jadwal[$i]['kapasitas_bus']-$kursi[$i][0]['count(no_kursi_order)'] 
+										?>
+										<?php if ($sisa == $jadwal[$i]['kapasitas_bus'] && $sisa != 0){ ?>
+											<button class="btn btn-danger" style="pointer-events: none;" type="button" disabled>Tersedia Pemesanan Institusi</button>
+										<?php }else { ?> 
+											<button class="btn btn-secondary" style="pointer-events: none;" type="button" disabled>Tidak Tersedia Pemesanan Institusi</button>
+										<?php } ?>
+									<?php } ?>
+									
 								</div>
 							</div>
 							<div class="card-body">
@@ -58,7 +66,17 @@
 											<td><?php echo hari_indo(date('N',strtotime($tanggal))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$tanggal.''))).', '.date('H:i',strtotime($jadwal[$i]['jam_berangkat_jadwal'])); ?></td>
 											<td><?php echo $jadwal[$i]['kapasitas_bus']-$kursi[$i][0]['count(no_kursi_order)'] ?></td>
 											<td>Rp <?php echo number_format((float)($jadwal[$i]['harga_jadwal']),0,",","."); ?>,-</td>
-											<td><a href="<?php echo base_url('tiket_mybus/beforebeli/').$jadwal[$i]['kd_jadwal'].'/'.$asal['kd_tujuan'].'/'.$tanggal ?>" class=" btn btn-danger">Pilih</a></td>
+											
+											<?php
+												$sisa = $jadwal[$i]['kapasitas_bus'] - $kursi[$i][0]['count(no_kursi_order)'] 
+											?>
+
+											<?php if ($sisa > 0){ ?>
+												<td><a href="<?php echo base_url('tiket_mybus/beforebeli/').$jadwal[$i]['kd_jadwal'].'/'.$asal['kd_tujuan'].'/'.$tanggal ?>" class="btn btn-danger">Pilih</a>
+											<?php }else{ ?> 
+												<td><button class="btn btn-danger" disabled>Pilih</button>
+											<?php } ?>
+											
 										</tr>
 										<?php } ?>
 									</tbody>

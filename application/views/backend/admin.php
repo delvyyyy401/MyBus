@@ -56,7 +56,6 @@
 
                     <td>
                       <?php if ($row['level_admin'] == '1') { ?>
-                        
                       <?php }else{ ?>
                         <a href="<?php echo base_url('backend/admin_mybus/deleteadmin/'.$row['kd_admin']) ?>" class="btn btn-danger">DELETE</a></td>
                       <?php } ?>

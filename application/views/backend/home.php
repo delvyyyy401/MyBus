@@ -30,7 +30,7 @@
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Pending Order -->
+            <!-- Pending Order Individu -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
@@ -47,6 +47,23 @@
               </div>
             </div>
 
+            <!-- Pending Order Instansi -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><a href="<?php echo base_url('backend/pending_mybus') ?>">Pending Order Instansi</a></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $pending_institusi[0]['count(kd_order)']; ?></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Total Tiket Terjual -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
@@ -54,6 +71,23 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?php echo base_url('backend/tiket_mybus') ?>">Total Tiket terjual</a></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $tiket[0]['count(kd_tiket)']; ?></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-qrcode fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Bus Disewa -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?php echo base_url('backend/tiket_mybus') ?>">Total Bus Disewa</a></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $tiket[0]['count(kd_tiket)']; ?></div>
                     </div>
                     <div class="col-auto">

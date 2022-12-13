@@ -40,7 +40,7 @@
 										<input type="text" id="" class="form-control" id="" name="kd_order" value="<?php echo $id ?>" placeholder="Kode Tiket">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">BANK Kamu</label>
+										<label for="exampleInputEmail1">Pilih BANK Pembayaran</label>
 										<select class="form-control" name="bank_km">
 											<option value="" selected disabled="">Pilih Bank</option>
 											<option value="BCA" >BCA</option>
@@ -62,7 +62,7 @@
 										<input type="number" class="form-control" name="total" value="<?php echo $total ?>" placeholder="Total Harga" readonly>
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Upload Poto Transaksi</label>
+										<label for="exampleInputEmail1">Upload Bukti Transaksi</label>
 										<input type="file" class="form-control" name="userfile" required="">
 									</div>
 									<button type="submit" class="btn btn-danger pull-right">Konfirmasi </button>

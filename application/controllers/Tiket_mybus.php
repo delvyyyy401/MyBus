@@ -54,6 +54,7 @@ class Tiket_mybus extends CI_Controller {
     		redirect('tiket_mybus');
 		}
 	}
+
 	public function beforebeli($jadwal="",$asal='',$tanggal=''){
 		$array = array(
 			'jadwal' => $jadwal,
@@ -69,6 +70,7 @@ class Tiket_mybus extends CI_Controller {
                WHERE kd_tujuan ='".$asal."'")->row_array();
 			$data['jadwal'] = $this->db->query("SELECT * FROM tbl_jadwal_mybus LEFT JOIN tbl_bus on tbl_jadwal_mybus.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_tujuan_mybus on tbl_jadwal_mybus.kd_tujuan = tbl_tujuan_mybus.kd_tujuan WHERE kd_jadwal ='".$id."'")->row_array();
 			$data['kursi'] = $this->db->query("SELECT no_kursi_order FROM tbl_order_mybus WHERE kd_jadwal = '".$data['jadwal']['kd_jadwal']."' AND tgl_berangkat_order = '".$data['tanggal']."' AND asal_order = '".$asal."'")->result_array();
+			$data['kursi_pengurangan'] = $this->db->query("SELECT no_kursi_order FROM tbl_order_mybus WHERE kd_jadwal = '".$data['jadwal']['kd_jadwal']."'")->result_array();
 			// print_r($this->session->userdata());
 			// die(print_r($data));
 			$this->load->view('frontend/beli_step1',$data);
@@ -91,6 +93,7 @@ class Tiket_mybus extends CI_Controller {
 			redirect('tiket_mybus/beforebeli/'.$data['asal'].'/'.$data['kd_jadwal']);
 		}
 	}
+
 	public function gettiket($value=''){
 		// die(print_r($_POST));
 	    include 'assets/phpqrcode/qrlib.php';
@@ -106,6 +109,10 @@ class Tiket_mybus extends CI_Controller {
 		$tahun = $this->input->post('tahun');
 		$no_ktp = $this->input->post('no_ktp');
 		$nama_pemesan = $this->input->post('nama_pemesan');
+		$nama_institusi =  $this->input->post('nama_institusi');
+		$jumlah_kursi_institusi =  $this->input->post('jumlah_kursi_institusi');
+		$tlp_institusi =  $this->input->post('tlp_institusi');
+		$alamat_institusi =  $this->input->post('alamat_institusi');
 		$hp = $this->input->post('hp');
 		$alamat = $this->input->post('alamat');
 		$email = $this->input->post('email');
@@ -115,37 +122,129 @@ class Tiket_mybus extends CI_Controller {
 		$status 		= '1';
 		QRcode::png($getkode,'assets/frontend/upload/qrcode/'.$getkode.".png","Q", 8, 8);
 		$count = count($kursi);
+		
+		
+
 		$tanggal = hari_indo(date('N',strtotime($jambeli))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$jambeli.''))).', '.date('H:i',strtotime($jambeli));
 		for($i=0; $i<$count; $i++) {
-			$simpan = array(
-				'kd_order' => $getkode,
-				'kd_tiket' => 'T'.$getkode.str_replace('-','',$tglberangkat).$kursi[$i],
-				'kd_jadwal'	=> $kd_jadwal,
-				'kd_pelanggan' => $kd_pelanggan,
-				'asal_order' => $asal['kd_tujuan'],
-				'nama_order'	=> $nama_pemesan,
-				'tgl_beli_order'	=> $tanggal,
-				'tgl_berangkat_order' => $tglberangkat,
-				'no_kursi_order'		=> $kursi[$i],
-				'nama_kursi_order' => $nama[$i],
-				'umur_kursi_order' => $tahun[$i],
-				'no_ktp_order'	=> $no_ktp,
-				'no_tlpn_order'	=> $hp,
-				'alamat_order'	=> $alamat,
-				'email_order'		=> $email,
-				'kd_bank' => $bank,
-				'expired_order'	=> $expired,
-				'qrcode_order'	=> 'assets/frontend/upload/qrcode/'.$getkode.'.png',
-				'status_order'	=> $status
-			);
+
+			if (empty($nama_institusi)) {
+				$simpan = array(
+					'kd_order' => $getkode,
+					'kd_tiket' => 'T'.$getkode.str_replace('-','',$tglberangkat).$kursi[$i],
+					'kd_jadwal'	=> $kd_jadwal,
+					'kd_pelanggan' => $kd_pelanggan,
+					'asal_order' => $asal['kd_tujuan'],
+					'nama_order'	=> $nama_pemesan,
+					'tgl_beli_order'	=> $tanggal,
+					'tgl_berangkat_order' => $tglberangkat,
+					'no_kursi_order'=> $kursi[$i],
+					'nama_kursi_order' => $nama[$i],
+					'umur_kursi_order' => $tahun,
+					'nama_institusi' => $nama_institusi,
+					'tlp_institusi' => $tlp_institusi,
+					'alamat_institusi' => $alamat_institusi,
+					'jumlah_kursi_institusi' => null,
+					'no_ktp_order'	=> $no_ktp,
+					'no_tlpn_order'	=> $hp,
+					'alamat_order'	=> $alamat,
+					'email_order' => $email,
+					'kd_bank' => $bank,
+					'expired_order'	=> $expired,
+					'qrcode_order'	=> 'assets/frontend/upload/qrcode/'.$getkode.'.png',
+					'status_order'	=> $status
+				);
+			}else{
+				$simpan = array(
+					'kd_order' => $getkode,
+					'kd_tiket' => 'T'.$getkode.str_replace('-','',$tglberangkat).$kursi[$i],
+					'kd_jadwal'	=> $kd_jadwal,
+					'kd_pelanggan' => $kd_pelanggan,
+					'asal_order' => $asal['kd_tujuan'],
+					'nama_order'	=> $nama_pemesan,
+					'tgl_beli_order'	=> $tanggal,
+					'tgl_berangkat_order' => $tglberangkat,
+					'no_kursi_order'=> $kursi[$i],
+					'nama_kursi_order' => $nama[$i],
+					'umur_kursi_order' => $tahun,
+					'nama_institusi' => $nama_institusi,
+					'tlp_institusi' => $tlp_institusi,
+					'alamat_institusi' => $alamat_institusi,
+					'jumlah_kursi_institusi' => 19,
+					'no_ktp_order'	=> $no_ktp,
+					'no_tlpn_order'	=> $hp,
+					'alamat_order'	=> $alamat,
+					'email_order' => $email,
+					'kd_bank' => $bank,
+					'expired_order'	=> $expired,
+					'qrcode_order'	=> 'assets/frontend/upload/qrcode/'.$getkode.'.png',
+					'status_order'	=> $status
+				);
+			}
 			$this->db->insert('tbl_order_mybus', $simpan);
 		}
 		redirect('tiket_mybus/checkout/'.$getkode);
 	}
+
+	// public function gettiket_institusi($value=''){
+	// 	// die(print_r($_POST));
+	//     include 'assets/phpqrcode/qrlib.php';
+	//     $asal =  $this->db->query("SELECT * FROM tbl_tujuan_mybus
+    //            WHERE kd_tujuan ='".$this->session->userdata('asal')."'")->row_array();		
+	// 	$getkode =  $this->getkod_model->get_kodtmporder();
+	// 	$kd_jadwal = $this->session->userdata('jadwal');
+	// 	$kd_pelanggan = $this->session->userdata('kd_pelanggan');
+	// 	$tglberangkat = $this->input->post('tgl');
+	// 	$jambeli = date("Y-m-d H:i:s");
+	// 	$nama_institusi =  $this->input->post('nama_institusi');
+	// 	$jumlah_kursi_institusi =  $this->input->post('jumlah_kursi_institusi');
+	// 	$tlp_institusi =  $this->input->post('tlp_institusi');
+	// 	$alamat_institusi =  $this->input->post('alamat_institusi');
+	// 	$no_ktp = $this->input->post('no_ktp');
+	// 	$nama_pemesan = $this->input->post('nama_pemesan');
+	// 	$hp = $this->input->post('hp');
+	// 	$alamat = $this->input->post('alamat');
+	// 	$email = $this->input->post('email');
+	// 	$bank = $this->input->post('bank');
+	// 	$satu_hari        = mktime(0,0,0,date("n"),date("j")+1,date("Y"));
+	// 	$expired       = date("d-m-Y", $satu_hari)." ".date('H:i:s');
+	// 	$status 		= '1';
+	// 	QRcode::png($getkode,'assets/frontend/upload/qrcode/'.$getkode.".png","Q", 8, 8);
+	// 	$count = count($kursi);
+	// 	$tanggal = hari_indo(date('N',strtotime($jambeli))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$jambeli.''))).', '.date('H:i',strtotime($jambeli));
+	// 	for($i=0; $i<$count; $i++) {
+	// 		$simpan = array(
+	// 			'kd_order' => $getkode,
+	// 			'kd_tiket' => 'T'.$getkode.str_replace('-','',$tglberangkat).$kursi[$i],
+	// 			'kd_jadwal'	=> $kd_jadwal,
+	// 			'kd_pelanggan' => $kd_pelanggan,
+	// 			'asal_order' => $asal['kd_tujuan'],
+	// 			'nama_order'	=> $nama_pemesan,
+	// 			'tgl_beli_order'	=> $tanggal,
+	// 			'tgl_berangkat_order' => $tglberangkat,
+	// 			'nama_institusi' => $nama_institusi,
+	// 			'jumlah_kursi_institusi' => 19,
+	// 			'tlp_institusi' => $tlp_institusi,
+	// 			'alamat_institusi' => $alamat_institusi,
+	// 			'no_ktp_order'	=> $no_ktp,
+	// 			'no_tlpn_order'	=> $hp,
+	// 			'alamat_order'	=> $alamat,
+	// 			'email_order' => $email,
+	// 			'kd_bank' => $bank,
+	// 			'expired_order'	=> $expired,
+	// 			'qrcode_order'	=> 'assets/frontend/upload/qrcode/'.$getkode.'.png',
+	// 			'status_order'	=> $status
+	// 		);
+	// 		$this->db->insert('tbl_order_mybus', $simpan);
+	// 	}
+	// 	redirect('tiket_mybus/checkout/'.$getkode);
+	// }
+
 	public function cekorder($id=''){
 		$id = $this->input->post('kodetiket');
-		$sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus LEFT JOIN tbl_bus on tbl_order_mybus.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_jadwal_mybus on tbl_order_mybus.kd_jadwal = tbl_jadwal_mybus.kd_jadwal LEFT JOIN tbl_bank_mybus on tbl_order_mybus.kd_bank = tbl_bank_mybus.kd_bank WHERE kd_order ='".$id."'")->result_array();
-		if ($sqlcek == '') {
+		$sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus LEFT JOIN tbl_jadwal_mybus on tbl_order_mybus.kd_jadwal = tbl_jadwal_mybus.kd_jadwal LEFT JOIN tbl_bank_mybus on tbl_order_mybus.kd_bank = tbl_bank_mybus.kd_bank WHERE kd_order ='".$id."'")->result_array();
+		if ($sqlcek == TRUE) {
+		$data['count'] = count($sqlcek);
 		$data['tiket'] = $sqlcek;
 		$this->load->view('frontend/payment',$data);
 		}else{
@@ -153,6 +252,7 @@ class Tiket_mybus extends CI_Controller {
     		redirect('tiket_mybus/cektiket');
 		}
 	}
+
 	public function payment($id=''){
 		$this->getsecurity();
 		$sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus LEFT JOIN tbl_jadwal_mybus on tbl_order_mybus.kd_jadwal = tbl_jadwal_mybus.kd_jadwal LEFT JOIN tbl_bank_mybus on tbl_order_mybus.kd_bank = tbl_bank_mybus.kd_bank WHERE kd_order ='".$id."'")->result_array();
@@ -179,7 +279,6 @@ class Tiket_mybus extends CI_Controller {
 			$this->load->view('frontend/payment', $data);
 		}
 	}
-
 	public function konfirmasi($value='',$harga=''){
 		$this->getsecurity();
 		// die(print_r($value));
@@ -187,7 +286,6 @@ class Tiket_mybus extends CI_Controller {
 		$data['total'] = $harga;
 		$this->load->view('frontend/konfirmasi', $data);
 	}
-
 	public function insertkonfirmasi($value=''){
 		$this->getsecurity();
 		// die(print_r($_POST));

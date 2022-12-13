@@ -29,7 +29,8 @@
 				<div class="row d-flex justify-content-center">
 					<div class="col-lg-4">
 						<!-- Default Card Example -->
-						<div class="card wobble animated">
+						<!-- <div class="card wobble animated"> -->
+						<div class="card">
 					  <div class="card-header">
 					   <i class="fa fa-ticket"></i> Cari Tiket
 					  </div>

@@ -20,9 +20,23 @@ class Pending_mybus extends CI_Controller {
  		$data['order'] = $this->db->query("SELECT * FROM tbl_order_mybus  WHERE status_order ='1' group by kd_order")->result_array();
 		$this->load->view('backend/order', $data);
 	}
+	
 	public function vieworder($id=''){
 		$cek = $this->input->get('order').$id;
 	 	$sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus LEFT JOIN tbl_jadwal_mybus on tbl_order_mybus.kd_jadwal = tbl_jadwal_mybus.kd_jadwal WHERE kd_order ='".$cek."'")->result_array();
+	 	if ($sqlcek) {
+	 		$data['tiket'] = $sqlcek;
+			$data['title'] = "View Order";
+			$this->load->view('backend/view_order',$data);
+	 	}else{
+	 		$this->session->set_flashdata('message', 'swal("Kosong", "Order Tidak Ada", "error");');
+    		redirect('backend/tiket_mybus');
+	 	}
+	}
+
+	public function vieworder_instansi($id=''){
+		$cek = $this->input->get('order').$id;
+	 	$sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus LEFT JOIN tbl_jadwal_mybus on tbl_order_mybus.kd_jadwal = tbl_jadwal_mybus.kd_jadwal WHERE tbl_order_mybus.jumlah_kursi_instansi > 4  AND kd_order ='".$cek."'")->result_array();
 	 	if ($sqlcek) {
 	 		$data['tiket'] = $sqlcek;
 			$data['title'] = "View Order";

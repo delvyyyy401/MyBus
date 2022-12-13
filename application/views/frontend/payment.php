@@ -27,7 +27,7 @@
 			<div class="overlay overlay-bg"></div>
 			<div class="container">
 				<div class="row d-flex justify-content-center">
-					<div class="col-lg-8">
+					<div class="col-lg-10">
 						<!-- Default Card Example -->
 						<div class="card mb-5">
 							<div class="card-header" align="center">
@@ -35,35 +35,62 @@
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-striped">
-										<thead>
-											<tr>
-												<th scope="col">No Tiket</th>
-												<th scope="col">No jadwal [Kode Bus]</th>
-												<th scope="col">Berangkat</th>
-												<th scope="col">No. Kursi</th>
-												<th scope="col">Harga</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php $i = 1; foreach ($tiket as $row) { ?>
-											<tr>
-												<?php $now = hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].''))).', '.date('H:i',strtotime($row['jam_berangkat_jadwal']));?>
-												<th scope="row"><?php echo $row['kd_tiket']; ?></th>
-												<td><?php echo $row['kd_jadwal']." [".$row['kd_bus'].']' ?></td>
-												<td><?php echo $now?></td>
-												<td><?php echo $row['no_kursi_order']; ?></td>
-												<td>Rp <?php echo $row['harga_jadwal']; ?></td>
-											</tr>
-											<?php } ?>
-											<td colspan="5"> <b class="pull-right">Total Rp <?php $total = $count * $tiket[0]['harga_jadwal'] ; echo $total ?></b></td>
-										</tbody>
-									</table>
+									<?php if ($count * $tiket[0]['jumlah_kursi_institusi']  == 19) { ?>
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th scope="col">No Tiket</th>
+													<th scope="col">No jadwal [Kode Bus]</th>
+													<th scope="col">Berangkat</th>
+													<th scope="col">Jumlah Kursi</th>
+													<th scope="col">Harga Satuan</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php $i = 1; foreach ($tiket as $row) { ?>
+												<tr>
+													<?php $now = hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].''))).', '.date('H:i',strtotime($row['jam_berangkat_jadwal']));?>
+													<th scope="row"><?php echo $row['kd_tiket']; ?></th>
+													<td><?php echo $row['kd_jadwal']." [".$row['kd_bus'].']' ?></td>
+													<td><?php echo $now?></td>
+													<td><?php echo $row['jumlah_kursi_institusi']; ?></td>
+													<td>Rp <?php echo $row['harga_jadwal']; ?></td>
+												</tr>
+												<?php } ?>
+												<td colspan="5"> <b class="pull-right">Total Rp <?php $total =  ($tiket[0]['jumlah_kursi_institusi'] * $tiket[0]['harga_jadwal']) ; echo $total ?></b></td>
+											</tbody>
+										</table>
+										<?php }else{ ?>
+											<table class="table table-striped">
+											<thead>
+												<tr>
+													<th scope="col">No Tiket</th>
+													<th scope="col">No jadwal [Kode Bus]</th>
+													<th scope="col">Berangkat</th>
+													<th scope="col">No. Kursi</th>
+													<th scope="col">Harga</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php $i = 1; foreach ($tiket as $row) { ?>
+												<tr>
+													<?php $now = hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].''))).', '.date('H:i',strtotime($row['jam_berangkat_jadwal']));?>
+													<th scope="row"><?php echo $row['kd_tiket']; ?></th>
+													<td><?php echo $row['kd_jadwal']." [".$row['kd_bus'].']' ?></td>
+													<td><?php echo $now?></td>
+													<td><?php echo $row['no_kursi_order']; ?></td>
+													<td>Rp <?php echo $row['harga_jadwal']; ?></td>
+												</tr>
+												<?php } ?>
+												<td colspan="5"> <b class="pull-right">Total Rp <?php $total = $count * $tiket[0]['harga_jadwal'] ; echo $total ?></b></td>
+											</tbody>
+										</table>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-8">
+					<div class="col-lg-10">
 						<!-- Default Card Example -->
 						<div class="card">
 							<div class="card-header" align="center">
