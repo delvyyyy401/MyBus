@@ -40,10 +40,10 @@
               <tbody>
                 <?php $i = 1 ; foreach ($tujuan as $row ) { ?>
                 <tr>
-                  <td><?php echo $i++; ?></td>
+                <td><?php echo $i++; ?></td>
                   <td><?php echo $row['kd_tujuan']; ?></td>
                   <td><?php echo strtoupper($row['kota_tujuan']); ?></td>
-                  <td><?php echo strtoupper($row['nama_terminal_tujuan']); ?></td>
+                  <td><?php echo  substr($row['nama_terminal_tujuan'], 0, 90); ?></td>
                   <td align="center"><a href="<?php echo base_url('backend/rute_mybus/viewrute/'.$row['kd_tujuan']) ?>" class="btn btn-warning">VIEW</a>
                   <a href="<?php echo base_url('backend/rute_mybus/deleterute/'.$row['kd_tujuan']) ?>" class="btn btn-danger">DELETE</a>
                 </td>
@@ -89,12 +89,12 @@
         </div>
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="nama_terminal" name="nama_terminal" class="form-control" placeholder="Nama Terminal" required="required" autofocus="autofocus">
+            <input type="text" id="nama_terminal_tujuan" name="nama_terminal_tujuan" class="form-control" placeholder="Nama Terminal" required="required" autofocus="autofocus">
           </div>
         </div>
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="info_terminal" name="info_terminal" class="form-control" placeholder="Info Terminal" required="required" autofocus="autofocus">
+            <input type="text" id="terminal_tujuan" name="terminal_tujuan" class="form-control" placeholder="Info Terminal" required="required" autofocus="autofocus">
           </div>
         </div>
         <div class="modal-footer">

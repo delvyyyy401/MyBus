@@ -24,7 +24,7 @@
           <h6 class="m-0 font-weight-bold text-danger">KODE Order [<?php echo $tiket[0]['kd_order']; ?>]  </h6>
         </div>
         <div class="card-body">
-          <form action="<?php echo base_url().'backend/order_41518110070/inserttiket' ?>" method="post" enctype="multipart/form-data">
+          <form action="<?php echo base_url().'backend/order_mybus/inserttiket' ?>" method="post" enctype="multipart/form-data">
              
             <div class="card-body">
               <div class="row">

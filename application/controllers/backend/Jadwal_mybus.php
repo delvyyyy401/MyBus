@@ -11,7 +11,7 @@ class Jadwal_mybus extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 	}
 	function getsecurity($value=''){
-		$username = $this->session->userdata('username_admin');
+		$username = $this->session->userdata('email_admin');
 		if (empty($username)) {
 			$this->session->sess_destroy();
 			redirect('backend/login_mybus');
@@ -23,12 +23,14 @@ class Jadwal_mybus extends CI_Controller {
 		// die(print_r($data));
 		$this->load->view('backend/jadwal', $data);
 	}
+
 	public function viewtambahjadwal($value=''){
 		$data['title'] = "Tambah Jadwal";
 		$data['bus'] = $this->db->query("SELECT * FROM tbl_bus ORDER BY nama_bus asc")->result_array();
 		$data['tujuan'] = $this->db->query("SELECT * FROM tbl_tujuan_mybus ORDER BY kota_tujuan asc")->result_array();
 		$this->load->view('backend/tambahjadwal', $data);
 	}
+	
 	public function tambahjadwal(){
 		$this->form_validation->set_rules('tujuan', 'Tujuan', 'trim|required|min_length[5]|max_length[12]');
 		if ($this->form_validation->run() ==  FALSE) {
@@ -59,11 +61,16 @@ class Jadwal_mybus extends CI_Controller {
 			$this->db->insert('tbl_jadwal_mybus', $simpan);
 			$this->session->set_flashdata('message', 'swal("Berhasil", "Data Jadwal Di Simpan", "success");');
 			redirect('backend/jadwal_mybus');
-			}
-			
+			}	
 		}
-		
 	}
+
+	public function hapusjadwal($id=''){
+	 	$sqlcek = $this->db->query("DELETE FROM tbl_jadwal_mybus WHERE kd_jadwal ='".$id."'");
+		$this->session->set_flashdata('message', 'swal("Berhasil", "Data Jadwal Di Hapus", "success");');
+		redirect('backend/jadwal_mybus');
+	}
+
 	public function viewjadwal($id=''){
 		$data['title'] = "List Tujuan";
 	 	$sqlcek = $this->db->query("SELECT * FROM tbl_jadwal_mybus LEFT JOIN tbl_bus on tbl_jadwal_mybus.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_tujuan_mybus on tbl_jadwal_mybus.kd_tujuan = tbl_tujuan_mybus.kd_tujuan WHERE kd_jadwal ='".$id."'")->row_array();
@@ -71,13 +78,13 @@ class Jadwal_mybus extends CI_Controller {
 	 		$data['asal'] = $this->db->query("SELECT * FROM tbl_tujuan_mybus WHERE kd_tujuan = '".$sqlcek['kd_asal']."'")->row_array();
 	 		$data['jadwal'] = $sqlcek;
 			$data['title'] = "View jadwal";
-			// die(print_r($data));
 			$this->load->view('backend/view_jadwal',$data);
 	 	}else{
 	 		$this->session->set_flashdata('message', 'swal("Gagal", "Data Jadwal Di Simpan", "error");');
 			redirect('backend/jadwal_mybus');
 	 	}
 	}	
+
 	public function editharga($id=''){
 		$kode = (trim(html_escape($this->input->post('kode'))));
 		$where = array('kd_jadwal' => $kode );

@@ -26,18 +26,36 @@ class Rute_mybus extends CI_Controller {
 		$data['title'] = "List Tujuan";
 		$data['rute'] = $this->db->query("SELECT * FROM tbl_tujuan_mybus WHERE kd_tujuan = '".$id."' ")->row_array();
 		// die(print_r($data));
-		$this->load->view('backend/view_tujuan', $data);
+		$this->load->view('backend/view_rute', $data);
 	}
 	public function tambahtujuan(){
 		$kode = $this->getkod_model->get_kodtuj();
 		$data = array(
 			'kota_tujuan' => $this->input->post('tujuan'),
 			'kd_tujuan' => $kode,
-			'terminal_tujuan' => $this->input->post('terminal'),
+			'nama_terminal_tujuan' => $this->input->post('nama_terminal_tujuan'),
+			'terminal_tujuan' => $this->input->post('terminal_tujuan'),
 			 );
 		// die(print_r($data));
 		$this->db->insert('tbl_tujuan_mybus', $data);
 		// $this->session->set_flashdata('message', 'swal("Data Berhasil Di Tambah");');
 		redirect('backend/rute_mybus');
 	}
+
+	public function deleterute($id=''){
+		$sqlcek = $this->db->query("DELETE FROM tbl_tujuan_mybus WHERE kd_tujuan ='".$id."'");
+	   	$this->session->set_flashdata('message', 'swal("Berhasil", "Data Jadwal Di Hapus", "success");');
+	   	redirect('backend/rute_mybus');
+   	}
+
+   public function editrute($id=''){
+	$kode = (trim(html_escape($this->input->post('kode'))));
+	$where = array('kd_tujuan' => $kode );
+	$update = array('nama_terminal_tujuan' =>  $this->input->post('nama_terminal_tujuan'));
+	$update2 = array('terminal_tujuan' =>  $this->input->post('terminal_tujuan'));
+	$this->db->update('tbl_tujuan_mybus', $update,$where);
+	$this->db->update('tbl_tujuan_mybus', $update2,$where);
+	$this->session->set_flashdata('message', 'swal("Berhasil", "Data Di Edit", "success");');
+	redirect('backend/rute_mybus/');
+}
 }

@@ -81,7 +81,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form action="<?php echo base_url()?>backend/bus_41518110070/tambahbus" method="post">
+    <form action="<?php echo base_url()?>backend/bus_mybus/tambahbus" method="post">
       <div class="form-group">
         <label for="platbus" class="">Nama BUS</label>
         <input type="text" class="form-control" name="nama_bus" placeholder="Plat Bus">

@@ -31,7 +31,6 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Kode User</th>
                   <th>Nama</th>
                   <th>Username</th>
                   <th>Email</th>
@@ -43,7 +42,6 @@
                 <?php $i=1;foreach ($admin as $row) { ?>
                   <tr>
                     <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['kd_admin']; ?></td>
                     <td><?php echo $row['nama_admin']; ?></td>
                     <td><?php echo $row['username_admin']; ?></td>
                     <td><?php echo $row['email_admin']; ?></td>
@@ -99,11 +97,6 @@
     </div>
     <div class="modal-body">
       <form action="<?php echo base_url() ?>backend/admin_mybus/tambahadmin" method="post" >
-        <div class="form-group">
-          <div class="form-label-group">
-            <input type="text" id="kode" name="kode" class="form-control" placeholder="Kode Admin" required="required" autofocus="autofocus">
-          </div>
-        </div>
         <div class="form-group">
           <div class="form-label-group">
             <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Admin" required="required" autofocus="autofocus">
