@@ -123,8 +123,6 @@ class Tiket_mybus extends CI_Controller {
 		QRcode::png($getkode,'assets/frontend/upload/qrcode/'.$getkode.".png","Q", 8, 8);
 		$count = count($kursi);
 		
-		
-
 		$tanggal = hari_indo(date('N',strtotime($jambeli))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$jambeli.''))).', '.date('H:i',strtotime($jambeli));
 		for($i=0; $i<$count; $i++) {
 

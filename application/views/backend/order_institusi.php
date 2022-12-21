@@ -15,7 +15,7 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">List Order Individu</h1>
+      <h1 class="h3 mb-2 text-gray-800">List Order Institusi</h1>
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -29,24 +29,23 @@
                   <th>Kode Order</th>
                   <th>Kode Jadwal</th>
                   <th>Tanggal Berangkat</th>
-                  <th>Nama Pemesan</th>
+                  <th>Nama Institusi</th>
                   <th>Tanggal Beli</th>
-                  <th>Jumlah Tiket</th>
+                  <th>Jumlah Kursi Booking</th>
                   <th>Status</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $i=1;foreach ($order as $row) { ?>
+                <?php $i=1;foreach ($order_institusi as $row) { ?>
                   <tr>
                     <td><?php echo $i++; ?></td>
                     <td><?php echo $row['kd_order']; ?></td>
                     <td><?php echo $row['kd_jadwal']; ?></td>
                     <td><?php echo hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].'')));?></td>
-                    <td><?php echo $row['nama_order']; ?></td>
+                    <td><?php echo $row['nama_institusi']; ?></td>
                     <td><?php echo $row['tgl_beli_order']; ?></td>
-                    <?php $sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus WHERE kd_order LIKE '".$row['kd_order']."'")->result_array(); ?>
-                    <td><?php echo count($sqlcek); ?></td>
+                    <td><?php echo $row['jumlah_kursi_institusi']; ?></td>
                     <?php if ($row['status_order'] == '1') { ?>
                           <td class="btn-danger"> Tunggu Konfirmasi</td> 
                           <?php } elseif($row['status_order'] == '2') { ?>

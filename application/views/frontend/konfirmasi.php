@@ -50,11 +50,11 @@
 										</select>
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Nomor Rekening</label>
+										<label for="exampleInputEmail1">Nomor Rekening Pembayar</label>
 										<input type="number" class="form-control" name="nomrek" value="" placeholder="Nomor Rekening">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Nama Pengirim</label>
+										<label for="exampleInputEmail1">Nama Pengirim Pembayaran</label>
 										<input type="text" class="form-control" name="nama" value="" placeholder="Nama Pengirim">
 									</div>
 									<div class="form-group">

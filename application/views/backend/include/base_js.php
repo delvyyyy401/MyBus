@@ -1,5 +1,5 @@
 <!-- Bootstrap core JavaScript-->
-  <script src="<?php echo base_url() ?>assets/backend/vendor/jquery/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>assets/backend/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url() ?>assets/backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
@@ -48,7 +48,7 @@
       <div class="modal-body">
         Website Pemesanan Tiket Shuttle Bus "My Bus" <br>
         Rekayasa Perangkat Lunak <br>
-        Universitas Kristen Duta Wacana <br>
+        Universitas Kristen Duta Wacana s<br>
         2022
       </div>
       <div class="modal-footer">

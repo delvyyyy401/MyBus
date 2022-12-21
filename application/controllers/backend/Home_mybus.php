@@ -11,10 +11,10 @@ class Home_mybus extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 	}
 	public function index(){
-		$data['title'] = "Home";
-		$data['order'] = $this->db->query("SELECT count(kd_order) FROM tbl_order_mybus WHERE status_order ='1' AND nama_kursi_order != ''")->result_array();
-		$data['pending_institusi'] = $this->db->query("SELECT count(kd_order) FROM tbl_order_mybus WHERE status_order ='1' AND jumlah_kursi_institusi = '19'")->result_array();
-		$data['tiket'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus ")->result_array();
+		$data['title'] = "Dashboard";
+		$data['pending_individu'] = $this->db->query("SELECT count(kd_order) FROM tbl_order_mybus WHERE nama_kursi_order != '' AND status_order = '1'")->result_array();
+		$data['pending_institusi'] = $this->db->query("SELECT count(kd_order) FROM tbl_order_mybus WHERE nama_institusi != '' AND status_order = '1'")->result_array();
+		$data['tiket_terjual'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus ")->result_array();
 		$data['bus_disewa'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus ")->result_array();
 		$data['konfirmasi'] = $this->db->query("SELECT count(kd_konfirmasi) FROM tbl_konfirmasi_mybus ")->result_array();
 		$data['total'] = $this->db->query("SELECT sum(total_konfirmasi) FROM tbl_konfirmasi_mybus ")->result_array();

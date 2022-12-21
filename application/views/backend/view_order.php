@@ -33,7 +33,44 @@
                 <input type="hidden" class="form-control" name="asal_beli" value="<?php echo $row['asal_order'] ?>" readonly>
                 <input type="hidden" class="form-control" name="kd_tiket[]" value="<?php echo $row['kd_tiket'] ?>" readonly>
                 <div class="col-sm-6">
+                <?php if ($row['jumlah_kursi_institusi'] == 19) { ?>
                   <label >Kode Tiket <b><?php echo $row['kd_tiket'] ?></b></label>
+                  <p>Nama Pemesan <b><?php echo $row['nama_order']; ?></b></p>
+                  <hr>
+                  <div class="row form-group">
+                    <label for="nama" class="col-sm-4 control-label">Kode Jadwal</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="kd_jadwal" value="<?php echo $row['kd_jadwal'] ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <label for="nama" class="col-sm-4 control-label">Nama Institusi</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="nama[]" value="<?php echo $row['nama_institusi'] ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <label for="" class="col-sm-4 control-label">Jumlah Kursi</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="no_kursi[]" value="<?php echo $row['jumlah_kursi_institusi'] ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <label for="" class="col-sm-4 control-label">Harga Booking</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="harga" value="<?php  echo $row['harga_jadwal']; ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <label for="" class="col-sm-4 control-label">Batas Pembayaran</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="tgl_beli" value="<?php echo hari_indo(date('N',strtotime($row['expired_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['expired_order'].''))).', '.date('H:i',strtotime($row['expired_order']));  ?>" readonly>
+                    </div>
+                  </div>
+
+                  
+                <?php }else{ ?>
+                <label >Kode Tiket <b><?php echo $row['kd_tiket'] ?></b></label>
                   <p>Nama Pemesan <b><?php echo $row['nama_order']; ?></b></p>
                   <hr>
                   <div class="row form-group">
@@ -71,9 +108,11 @@
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="tgl_beli" value="<?php echo hari_indo(date('N',strtotime($row['expired_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['expired_order'].''))).', '.date('H:i',strtotime($row['expired_order']));  ?>" readonly>
                     </div>
-                  </div>
+                  </div>  
+                <?php } ?>
                 </div>
                 <?php } ?>
+
                 <div class="col-sm-6">
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Cek Konfirmasi Pembayaran</label>
@@ -99,9 +138,14 @@
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Total Pembayaran</label>
                     <div class="col-sm-8">
+                    <?php if ($row['jumlah_kursi_institusi'] == 19) { ?>
+                      <p><b>Rp <?php $total = $tiket[0]['jumlah_kursi_institusi'] * $tiket[0]['harga_jadwal']; echo number_format($total)?></b></p>
+                    <?php }else{ ?>
                       <p><b>Rp <?php $total =  count($tiket) * $tiket[0]['harga_jadwal']; echo number_format($total)?></b></p>
+                    <?php } ?>
                       </select>
                     </div>
+
                   </div>
                 </div>
               </div>

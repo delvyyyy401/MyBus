@@ -16,10 +16,17 @@ class Order_mybus extends CI_Controller {
 		}
 	}
 	public function index(){
-		$data['title'] = "List Order";
- 		$data['order'] = $this->db->query("SELECT * FROM tbl_order_mybus group by kd_order")->result_array();
+		$data['title'] = "List Order Individu";
+ 		$data['order'] = $this->db->query("SELECT * FROM tbl_order_mybus WHERE nama_kursi_order != '' group by kd_order")->result_array();
 		$this->load->view('backend/order', $data);
 	}
+
+	public function index2(){
+		$data['title'] = "List Order Institusi";
+		$data['order_institusi'] = $this->db->query("SELECT * FROM tbl_order_mybus WHERE nama_institusi != '' group by kd_order")->result_array();
+		$this->load->view('backend/order_institusi', $data);
+	}
+
 	public function vieworder($id=''){
 		$cek = $this->input->get('order').$id;
 	 	$sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus LEFT JOIN tbl_jadwal_mybus on tbl_order_mybus.kd_jadwal = tbl_jadwal_mybus.kd_jadwal WHERE kd_order ='".$cek."'")->result_array();
@@ -32,6 +39,7 @@ class Order_mybus extends CI_Controller {
     		redirect('backend/tiket_mybus');
 	 	}
 	}
+
 	public function inserttiket($value=''){
 		$id = $this->input->post('kd_order');
 		$asal = $this->input->post('asal_beli');
@@ -39,6 +47,8 @@ class Order_mybus extends CI_Controller {
 		$nama = $this->input->post('nama');
 		$kursi = $this->input->post('no_kursi');
 		$umur = $this->input->post('umur_kursi');
+		$nama_institusi =  $this->input->post('nama_institusi');
+		$jumlah_kursi_institusi =  $this->input->post('jumlah_kursi_institusi');
 		$harga = $this->input->post('harga');
 		$tgl = $this->input->post('tgl_beli');
 		$status = $this->input->post('status');
@@ -50,24 +60,40 @@ class Order_mybus extends CI_Controller {
 		$pelanggan = $this->db->query("SELECT email_pelanggan FROM tbl_pelanggan_mybus WHERE kd_pelanggan ='".$data['cetak'][0]['kd_pelanggan']."'")->row_array();
 		$pdfFilePath = "assets/backend/upload/etiket/".$id.".pdf";
 		$html = $this->load->view('frontend/cetaktiket', $data, TRUE);
-	    // $this->load->library('m_pdf');
-		// $this->m_pdf->pdf->WriteHTML($html);
-		// $this->m_pdf->pdf->Output($pdfFilePath);
 		for ($i=0; $i < count($nama) ; $i++) { 
+			if (empty($nama_institusi)) {
 			$simpan = array(
 				'kd_tiket' => $tiket[$i],
 				'kd_order' => $id,
 				'nama_tiket' => $nama[$i],
 				'kursi_tiket' => $kursi[$i],
-				'umur_tiket' => $umur[$i],
+				'umur_tiket' => $umur,
 				'asal_beli_tiket' => $asal,
 				'harga_tiket' => $harga,
 				'status_tiket' => $status,
+				'nama_institusi' => $nama_institusi,
+				'jumlah_kursi_institusi' => null,
 				'etiket_tiket' => $pdfFilePath,
 				'create_tgl_tiket' => date('Y-m-d'),
 				'create_admin_tiket' => $this->session->userdata('username_admin')
 			);
-		// die(print_r($simpan));
+		} else{
+			$simpan = array(
+			'kd_tiket' => $tiket[$i],
+			'kd_order' => $id,
+			'nama_tiket' => $nama[$i],
+			'kursi_tiket' => $kursi[$i],
+			'umur_tiket' => $umur,
+			'asal_beli_tiket' => $asal,
+			'jumlah_kursi_institusi' => 19,
+			'nama_institusi' => $nama_institusi,
+			'harga_tiket' => $harga,
+			'status_tiket' => $status,
+			'etiket_tiket' => $pdfFilePath,
+			'create_tgl_tiket' => date('Y-m-d'),
+			'create_admin_tiket' => $this->session->userdata('username_admin')
+			);
+		}
 		$this->db->insert('tbl_tiket_mybus', $simpan);
 		}
 	    $this->session->set_flashdata('message', 'swal("Berhasil", "Tiket Order Berhasil Di Proses", "success");');

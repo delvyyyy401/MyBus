@@ -181,7 +181,7 @@
 													<div class="alert alert-danger" role="alert">
 														<p>Setelah memilih kursi, silahkan klik tombol 'selanjutnya' dibawah ini !</p>
 														<div class='btn-group'>
-															<a href="<?php echo base_url('tiket_mybus/cekjadwal/'.$tanggal.'/'.$asal['kd_tujuan'].'/'.$jadwal['kota_tujuan']) ?>" class='btn btn-default'>Kembali</a>
+															<a href="<?php echo base_url('tiket_41518110070/cekjadwal/'.$tanggal.'/'.$asal['kd_tujuan'].'/'.$jadwal['kota_tujuan']) ?>" class='btn btn-default'>Kembali</a>
 															<input class="btn btn-danger pull-right" disabled="disabled" type="submit" value="Selanjutnya">
 														</div>
 													</div>
@@ -222,28 +222,29 @@
 											}
 											});
 
-										     jQuery(document).ready(function(){
-									          var checkboxes = $("input[type='checkbox']"),
-									              submitButt = $("input[type='submit']");
-									          checkboxes.click(function() {
-									              submitButt.attr("disabled", !checkboxes.is(":checked"));
-									          });
-									         })
+										    jQuery(document).ready(function(){
+												var checkboxes = $("input[type='checkbox']"),
+													submitButt = $("input[type='submit']");
+												checkboxes.click(function() {
+													submitButt.attr("disabled", !checkboxes.is(":checked"));
+												});
+												})
 									                						                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 										    </script>
 											<script type="text/javascript">
 											var count=0
 											function cer(elem){
-											if (elem.checked) {
-											count = count + 1;
-											if (count>4) {
-											count = 4;
-											swal("Maaf", "Maaf anda hanya boleh memilih 4 kursi !", "error");
-											elem.checked = false;
-											}
-											}else{
-											count = count-1;
-											}
+												if (elem.checked) {
+													count = count + 1;
+													if (count>4) {
+														count = 4;
+														swal("Maaf", "Maaf anda hanya boleh memilih 4 kursi !", "error");
+														elem.checked = false;
+													}
+												}
+												else{
+													count = count-1;
+												}
 											}
 											</script>
 											<?php $this->load->view('frontend/include/base_js'); ?>

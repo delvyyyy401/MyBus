@@ -15,7 +15,7 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">List Order Individu</h1>
+      <h1 class="h3 mb-2 text-gray-800">List Tiket</h1>
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -26,33 +26,22 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Kode Order</th>
-                  <th>Kode Jadwal</th>
-                  <th>Tanggal Berangkat</th>
-                  <th>Nama Pemesan</th>
-                  <th>Tanggal Beli</th>
-                  <th>Jumlah Tiket</th>
-                  <th>Status</th>
+                  <th>Kode Tiket</th>
+                  <th>Nama Institusi</th>
+                  <th>Jumlah Kursi</th>
+                  <th>Asal Beli</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $i=1;foreach ($order as $row) { ?>
+                <?php $i=1;foreach ($tiket as $row) { ?>
                   <tr>
                     <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['kd_order']; ?></td>
-                    <td><?php echo $row['kd_jadwal']; ?></td>
-                    <td><?php echo hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].'')));?></td>
-                    <td><?php echo $row['nama_order']; ?></td>
-                    <td><?php echo $row['tgl_beli_order']; ?></td>
-                    <?php $sqlcek = $this->db->query("SELECT * FROM tbl_order_mybus WHERE kd_order LIKE '".$row['kd_order']."'")->result_array(); ?>
-                    <td><?php echo count($sqlcek); ?></td>
-                    <?php if ($row['status_order'] == '1') { ?>
-                          <td class="btn-danger"> Tunggu Konfirmasi</td> 
-                          <?php } elseif($row['status_order'] == '2') { ?>
-                          <td class="btn-success"> Sudah Bayar</td>
-                        <?php } ?>
-                    <td><a href="<?php echo base_url('backend/order_mybus/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-danger">View</a></td>
+                    <td><?php echo $row['kd_tiket']; ?></td>
+                    <td><?php echo $row['nama_institusi']; ?></td>
+                    <td><?php echo $row['jumlah_kursi_institusi']; ?></td>
+                    <td><?php echo strtoupper($row['asal_beli_tiket']);  ?></td>
+                    <td><a href="<?php echo base_url('backend/tiket_mybus/viewtiket/'.$row['kd_tiket']) ?>" class="btn btn btn-danger">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

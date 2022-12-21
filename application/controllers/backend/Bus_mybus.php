@@ -17,7 +17,6 @@ class Bus_mybus extends CI_Controller {
 	public function viewbus($id=''){
 		$data['title'] = "View Bus";
 		$data['bus'] = $this->db->query("SELECT * FROM tbl_bus WHERE kd_bus = '".$id."'")->row_array();
-		// die(print_r($data));
 		$this->load->view('backend/view_bus', $data);
 	}
 

@@ -18,15 +18,37 @@
         <a class="nav-link" href="<?php echo base_url() ?>backend/home_mybus">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard </span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/order_mybus">
-          <i class="fas fa-list-alt"></i>
-          <span>List Order</span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/pending_mybus">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoOrderPending" aria-expanded="true" aria-controls="collapseTwoOrderPending">
           <i class="fas fa-clock"></i>
-          <span>List Pending</span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/tiket_mybus">
+            <span>List Pending Order</span>
+        </a>
+        <div id="collapseTwoOrderPending" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url('backend/pending_mybus') ?>">Individu</a>
+            <a class="collapse-item" href="<?php echo base_url('backend/pending_mybus/index2') ?>">Institusi</a>
+          </div>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoOrder" aria-expanded="true" aria-controls="collapseTwoOrder">
+          <i class="fas fa-list-alt"></i>
+            <span>List Order</span>
+        </a>
+        <div id="collapseTwoOrder" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url('backend/order_mybus') ?>">Individu</a>
+            <a class="collapse-item" href="<?php echo base_url('backend/order_mybus/index2') ?>">Institusi</a>
+          </div>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoTiket" aria-expanded="true" aria-controls="collapseTwoTiket">
           <i class="fas fa-qrcode"></i>
-          <span>List Tiket</span></a>
+            <span>List Tiket Terjual</span>
+        </a>
+        <div id="collapseTwoTiket" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url('backend/tiket_mybus') ?>">Individu</a>
+            <a class="collapse-item" href="<?php echo base_url('backend/tiket_mybus/index2') ?>">Institusi</a>
+          </div>
+        </div>
+
         <a class="nav-link" href="<?php echo base_url() ?>backend/jadwal_mybus">
           <i class="fas fa fa-clipboard-list"></i>
           <span>Jadwal & Harga</span></a>
@@ -56,7 +78,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?php echo base_url('backend/pelanggan_mybus') ?>">List Pelanggan</a>
-                <a class="collapse-item" href="<?php echo base_url() ?>backend/admin_mybus">List User</a>
+                <a class="collapse-item" href="<?php echo base_url('backend/admin_mybus') ?>">List User</a>
               </div>
             </div>
         <?php }else{ } ?>
