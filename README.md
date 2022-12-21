@@ -5,5 +5,7 @@ Login sebagai admin dan manager, menggunakan url http://localhost/mybus/backend/
 Login sebagai customer, menggunakan url http://localhost/mybus
 
 Admin: email : adm@gmail.com, password : admin
+
 Manager : email : manager@gmail.com, password : admin
+
 Customer : mail : fanget@gmail.com, paword : fanget123
