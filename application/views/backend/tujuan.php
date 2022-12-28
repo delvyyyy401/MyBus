@@ -31,9 +31,9 @@
               <thead>
                 <tr align="center">
                   <th>No</th>
-                  <th>Kode</th>
                   <th>Kota Tujuan</th>
                   <th>Nama Terminal</th>
+                  <th>Alamat Terminal</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -41,9 +41,9 @@
                 <?php $i = 1 ; foreach ($tujuan as $row ) { ?>
                 <tr>
                 <td><?php echo $i++; ?></td>
-                  <td><?php echo $row['kd_tujuan']; ?></td>
                   <td><?php echo strtoupper($row['kota_tujuan']); ?></td>
                   <td><?php echo  substr($row['nama_terminal_tujuan'], 0, 90); ?></td>
+                  <td><?php echo  substr($row['terminal_tujuan'], 0, 50); ?></td>
                   <td align="center"><a href="<?php echo base_url('backend/rute_mybus/viewrute/'.$row['kd_tujuan']) ?>" class="btn btn-warning">VIEW</a>
                   <a href="<?php echo base_url('backend/rute_mybus/deleterute/'.$row['kd_tujuan']) ?>" class="btn btn-danger">DELETE</a>
                 </td>
@@ -84,7 +84,7 @@
       <form action="<?php echo base_url() ?>backend/rute_mybus/tambahtujuan" method="post" >
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="tujuan" name="tujuan" class="form-control" placeholder="Tujuan" required="required" autofocus="autofocus">
+            <input type="text" id="tujuan" name="tujuan" class="form-control" placeholder="Kota Tujuan" required="required" autofocus="autofocus">
           </div>
         </div>
         <div class="form-group">
@@ -94,7 +94,7 @@
         </div>
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="terminal_tujuan" name="terminal_tujuan" class="form-control" placeholder="Info Terminal" required="required" autofocus="autofocus">
+            <input type="text" id="terminal_tujuan" name="terminal_tujuan" class="form-control" placeholder="Alamat Terminal" required="required" autofocus="autofocus">
           </div>
         </div>
         <div class="modal-footer">

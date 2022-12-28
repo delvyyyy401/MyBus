@@ -14,9 +14,10 @@ class Home_mybus extends CI_Controller {
 		$data['title'] = "Dashboard";
 		$data['pending_individu'] = $this->db->query("SELECT count(kd_order) FROM tbl_order_mybus WHERE nama_kursi_order != '' AND status_order = '1'")->result_array();
 		$data['pending_institusi'] = $this->db->query("SELECT count(kd_order) FROM tbl_order_mybus WHERE nama_institusi != '' AND status_order = '1'")->result_array();
-		$data['tiket_terjual'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus ")->result_array();
-		$data['bus_disewa'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus ")->result_array();
-		$data['konfirmasi'] = $this->db->query("SELECT count(kd_konfirmasi) FROM tbl_konfirmasi_mybus ")->result_array();
+		$data['konfirmasi_individu'] = $this->db->query("SELECT count(kd_konfirmasi) FROM tbl_konfirmasi_mybus WHERE total_konfirmasi < 1000000")->result_array();
+		$data['konfirmasi_institusi'] = $this->db->query("SELECT count(kd_konfirmasi) FROM tbl_konfirmasi_mybus WHERE total_konfirmasi > 1000000")->result_array();
+		$data['bus_disewa'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus WHERE nama_institusi != ''")->result_array();
+		$data['tiket_terjual'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus WHERE umur_tiket != ''")->result_array();
 		$data['total'] = $this->db->query("SELECT sum(total_konfirmasi) FROM tbl_konfirmasi_mybus ")->result_array();
 		$this->load->view('backend/home', $data);
 	}

@@ -191,6 +191,7 @@ span.onclick = function() {
                         <div class="row form-group">
                           <label class="">Info Terminal</label>
                           <input type="text" class="form-control" name="terminal_tujuan" value="<?php echo $rute['terminal_tujuan']?>">
+                          <!-- <textarea  type="text" class="form-control" name="terminal_tujuan" rows="3" value="<?php echo $rute['terminal_tujuan']?>"></textarea> -->
                           <input type="hidden" name="kode" value="<?php echo $rute['kd_tujuan']?>">
                         </div>
 											</div>

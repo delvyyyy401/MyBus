@@ -7,8 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?php echo $title ?></title>
-    <!-- Favicon-->
-		<link rel="shortcut icon" href="assets/img/mybus.png">
     <!-- css -->
     <link rel="stylesheet" href="<?php echo base_url('assets/frontend/timepicker') ?>/css/bootstrap-material-datetimepicker.css" />
     <?php $this->load->view('backend/include/base_css'); ?>
@@ -28,7 +26,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-12">
-                <form action="<?php echo base_url()?>backend/jadwal_mybus/tambahjadwal" method="post">
+                <form action="<?php echo base_url("backend/jadwal_mybus/tambahjadwal")?>" method="post">
                   <div class="form-group">
                     <label class="">Asal</label>
                     <select class="form-control" name="asal" required>
@@ -51,13 +49,11 @@
                     <label  class="">Bus</label>
                     <select class="form-control" name="bus">
                       <option value="" selected disabled="">-Pilih Bus-</option>
-
-                      
                       <?php foreach ($bus as $row ) {?>
                       <option value="<?php echo $row['kd_bus'] ?>" ><?php echo strtoupper($row['nama_bus']); ?> -<?php if ($row['status_bus'] == '1') { ?>
-                        Tersedia
+                        Online
                         <?php } else { ?>
-                        Tidak Tersedia
+                        Offline
                       <?php } ?>- </option>
                       <?php } ?>
                     </select>
@@ -79,7 +75,7 @@
               </div>
               <hr>
               <a class="btn btn-default" href="javascript:history.back()"> Kembali</a>
-              <input  type="submit" class="btn btn-danger pull-rigth" value="Tambah Jadwal">
+              <input type="submit" class="btn btn-danger pull-rigth" value="Tambah Jadwal">
             </form>
           </div>
         </div>

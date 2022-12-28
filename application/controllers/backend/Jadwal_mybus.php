@@ -32,7 +32,7 @@ class Jadwal_mybus extends CI_Controller {
 	}
 	
 	public function tambahjadwal(){
-		$this->form_validation->set_rules('tujuan', 'Tujuan', 'trim|required|min_length[5]|max_length[12]');
+		$this->form_validation->set_rules('tujuan', 'Tujuan', 'trim|required|min_length[1]|max_length[50]');
 		if ($this->form_validation->run() ==  FALSE) {
 			$data['title'] = "Tambah Jadwal";
 			$data['bus'] = $this->db->query("SELECT * FROM tbl_bus ORDER BY nama_bus asc")->result_array();
@@ -41,7 +41,7 @@ class Jadwal_mybus extends CI_Controller {
 		} else {
 			$asal = $this->input->post('asal');
 			$tujuan = $this->db->query("SELECT * FROM tbl_tujuan_mybus
-               WHERE kd_tujuan ='".$this->input->post('tujuan')."'")->row_array();
+               WHERE kd_tujuan = ".$this->input->post('tujuan')."")->row_array();
 			if ($asal == $tujuan['kd_tujuan']) {
 				$this->session->set_flashdata('message', 'swal("Berhasil", "Tujuan Jadwal Tidak Boleh Sama", "error");');
 			redirect('backend/jadwal_mybus');
@@ -57,7 +57,6 @@ class Jadwal_mybus extends CI_Controller {
 					'jam_tiba_jadwal' => $this->input->post('tiba'),
 					'harga_jadwal' =>  $this->input->post('harga'),
 					 );
-			// die(print_r($simpan));
 			$this->db->insert('tbl_jadwal_mybus', $simpan);
 			$this->session->set_flashdata('message', 'swal("Berhasil", "Data Jadwal Di Simpan", "success");');
 			redirect('backend/jadwal_mybus');

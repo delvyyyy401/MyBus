@@ -18,13 +18,13 @@ class Pending_mybus extends CI_Controller {
 	public function index(){
 		$data['title'] = "List Pending Individu";
  		$data['order'] = $this->db->query("SELECT * FROM tbl_order_mybus WHERE nama_kursi_order != '' AND status_order = '1' group by kd_order")->result_array();
-		$this->load->view('backend/order', $data);
+		$this->load->view('backend/pending', $data);
 	}
 
 	public function index2(){
 		$data['title'] = "List Pending Institusi";
 		$data['order_institusi'] = $this->db->query("SELECT * FROM tbl_order_mybus WHERE nama_institusi != '' AND status_order = '1' group by kd_order")->result_array();
-		$this->load->view('backend/order_institusi', $data);
+		$this->load->view('backend/pending_institusi', $data);
 	}
 	
 	public function vieworder($id=''){
@@ -74,13 +74,13 @@ class Pending_mybus extends CI_Controller {
 		$pdfFilePath = "assets/backend/upload/etiket/".$id.".pdf";
 		$html = $this->load->view('frontend/cetaktiket', $data, TRUE);
 		for ($i=0; $i < count($nama) ; $i++) { 
-			if (empty($nama_institusi)) {
+		if (empty($nama_institusi)) {
 			$simpan = array(
 				'kd_tiket' => $tiket[$i],
 				'kd_order' => $id,
 				'nama_tiket' => $nama[$i],
 				'kursi_tiket' => $kursi[$i],
-				'umur_tiket' => $umur,
+				'umur_tiket' => $umur[$i],
 				'asal_beli_tiket' => $asal,
 				'harga_tiket' => $harga,
 				'status_tiket' => $status,
@@ -96,7 +96,7 @@ class Pending_mybus extends CI_Controller {
 			'kd_order' => $id,
 			'nama_tiket' => $nama[$i],
 			'kursi_tiket' => $kursi[$i],
-			'umur_tiket' => $umur,
+			'umur_tiket' => $umur[$i],
 			'asal_beli_tiket' => $asal,
 			'jumlah_kursi_institusi' => 19,
 			'nama_institusi' => $nama_institusi,

@@ -16,11 +16,19 @@ class Konfirmasi_mybus extends CI_Controller {
 			redirect('backend/login_mybus');
 		}
 	}
+	
 	public function index(){
 	$data['title'] = "List Konfirmasi";
-	$data['konfirmasi'] = $this->db->query("SELECT * FROM tbl_konfirmasi_mybus group by kd_konfirmasi")->result_array();
+	$data['konfirmasi'] = $this->db->query("SELECT * FROM tbl_konfirmasi_mybus WHERE total_konfirmasi < 1000000 GROUP BY kd_konfirmasi")->result_array();
 	$this->load->view('backend/konfirmasi', $data);	
 	}
+
+	public function index2(){
+		$data['title'] = "List Konfirmasi";
+		$data['konfirmasi'] = $this->db->query("SELECT * FROM tbl_konfirmasi_mybus WHERE total_konfirmasi > 1000000 GROUP BY kd_konfirmasi")->result_array();
+		$this->load->view('backend/konfirmasi_institusi', $data);	
+	}
+
 	public function viewkonfirmasi($id=''){
 	 $sqlcek = $this->db->query("SELECT * FROM tbl_konfirmasi_mybus WHERE kd_order ='".$id."'")->result_array();
 	 $data['title'] = "View Konfirmasi";

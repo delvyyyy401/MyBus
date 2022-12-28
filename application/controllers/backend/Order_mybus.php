@@ -61,13 +61,13 @@ class Order_mybus extends CI_Controller {
 		$pdfFilePath = "assets/backend/upload/etiket/".$id.".pdf";
 		$html = $this->load->view('frontend/cetaktiket', $data, TRUE);
 		for ($i=0; $i < count($nama) ; $i++) { 
-			if (empty($nama_institusi)) {
+		if (empty($nama_institusi)) {
 			$simpan = array(
 				'kd_tiket' => $tiket[$i],
 				'kd_order' => $id,
 				'nama_tiket' => $nama[$i],
 				'kursi_tiket' => $kursi[$i],
-				'umur_tiket' => $umur,
+				'umur_tiket' => $umur[$i],
 				'asal_beli_tiket' => $asal,
 				'harga_tiket' => $harga,
 				'status_tiket' => $status,
@@ -83,7 +83,7 @@ class Order_mybus extends CI_Controller {
 			'kd_order' => $id,
 			'nama_tiket' => $nama[$i],
 			'kursi_tiket' => $kursi[$i],
-			'umur_tiket' => $umur,
+			'umur_tiket' => $umur[$i],
 			'asal_beli_tiket' => $asal,
 			'jumlah_kursi_institusi' => 19,
 			'nama_institusi' => $nama_institusi,

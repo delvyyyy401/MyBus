@@ -12,3 +12,4 @@ class Grafik extends CI_Controller {
         $this->load->view('backend/laporan/laporan_grafik',$data);
     } // tutup fucntion
 } // tutup controller
+

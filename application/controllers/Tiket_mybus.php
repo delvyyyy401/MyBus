@@ -95,7 +95,6 @@ class Tiket_mybus extends CI_Controller {
 	}
 
 	public function gettiket($value=''){
-		// die(print_r($_POST));
 	    include 'assets/phpqrcode/qrlib.php';
 	    $asal =  $this->db->query("SELECT * FROM tbl_tujuan_mybus
                WHERE kd_tujuan ='".$this->session->userdata('asal')."'")->row_array();		
@@ -183,60 +182,6 @@ class Tiket_mybus extends CI_Controller {
 		}
 		redirect('tiket_mybus/checkout/'.$getkode);
 	}
-
-	// public function gettiket_institusi($value=''){
-	// 	// die(print_r($_POST));
-	//     include 'assets/phpqrcode/qrlib.php';
-	//     $asal =  $this->db->query("SELECT * FROM tbl_tujuan_mybus
-    //            WHERE kd_tujuan ='".$this->session->userdata('asal')."'")->row_array();		
-	// 	$getkode =  $this->getkod_model->get_kodtmporder();
-	// 	$kd_jadwal = $this->session->userdata('jadwal');
-	// 	$kd_pelanggan = $this->session->userdata('kd_pelanggan');
-	// 	$tglberangkat = $this->input->post('tgl');
-	// 	$jambeli = date("Y-m-d H:i:s");
-	// 	$nama_institusi =  $this->input->post('nama_institusi');
-	// 	$jumlah_kursi_institusi =  $this->input->post('jumlah_kursi_institusi');
-	// 	$tlp_institusi =  $this->input->post('tlp_institusi');
-	// 	$alamat_institusi =  $this->input->post('alamat_institusi');
-	// 	$no_ktp = $this->input->post('no_ktp');
-	// 	$nama_pemesan = $this->input->post('nama_pemesan');
-	// 	$hp = $this->input->post('hp');
-	// 	$alamat = $this->input->post('alamat');
-	// 	$email = $this->input->post('email');
-	// 	$bank = $this->input->post('bank');
-	// 	$satu_hari        = mktime(0,0,0,date("n"),date("j")+1,date("Y"));
-	// 	$expired       = date("d-m-Y", $satu_hari)." ".date('H:i:s');
-	// 	$status 		= '1';
-	// 	QRcode::png($getkode,'assets/frontend/upload/qrcode/'.$getkode.".png","Q", 8, 8);
-	// 	$count = count($kursi);
-	// 	$tanggal = hari_indo(date('N',strtotime($jambeli))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$jambeli.''))).', '.date('H:i',strtotime($jambeli));
-	// 	for($i=0; $i<$count; $i++) {
-	// 		$simpan = array(
-	// 			'kd_order' => $getkode,
-	// 			'kd_tiket' => 'T'.$getkode.str_replace('-','',$tglberangkat).$kursi[$i],
-	// 			'kd_jadwal'	=> $kd_jadwal,
-	// 			'kd_pelanggan' => $kd_pelanggan,
-	// 			'asal_order' => $asal['kd_tujuan'],
-	// 			'nama_order'	=> $nama_pemesan,
-	// 			'tgl_beli_order'	=> $tanggal,
-	// 			'tgl_berangkat_order' => $tglberangkat,
-	// 			'nama_institusi' => $nama_institusi,
-	// 			'jumlah_kursi_institusi' => 19,
-	// 			'tlp_institusi' => $tlp_institusi,
-	// 			'alamat_institusi' => $alamat_institusi,
-	// 			'no_ktp_order'	=> $no_ktp,
-	// 			'no_tlpn_order'	=> $hp,
-	// 			'alamat_order'	=> $alamat,
-	// 			'email_order' => $email,
-	// 			'kd_bank' => $bank,
-	// 			'expired_order'	=> $expired,
-	// 			'qrcode_order'	=> 'assets/frontend/upload/qrcode/'.$getkode.'.png',
-	// 			'status_order'	=> $status
-	// 		);
-	// 		$this->db->insert('tbl_order_mybus', $simpan);
-	// 	}
-	// 	redirect('tiket_mybus/checkout/'.$getkode);
-	// }
 
 	public function cekorder($id=''){
 		$id = $this->input->post('kodetiket');

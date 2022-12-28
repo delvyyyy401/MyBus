@@ -16,7 +16,7 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">List Tiket</h1>
+      <h1 class="h3 mb-2 text-gray-800">List Tiket Terbayar Individu</h1>
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -45,7 +45,7 @@
                     <td><?php echo $row['nama_konfirmasi']; ?></td>
                     <td><?php echo $row['nama_bank_konfirmasi']; ?></td>
                     <td><?php echo $row['norek_konfirmasi']; ?></td>
-                    <td><?php echo $row['total_konfirmasi']; ?></td>
+                    <td>Rp <?php echo number_format((float)($row['total_konfirmasi']),0,",","."); ?>,-</td>
                     <td><a href="<?php echo base_url('backend/konfirmasi_mybus/viewkonfirmasi/'.$row['kd_order']) ?>" class="btn btn btn-danger">View</a></td>
                   </tr>
                 <?php } ?>

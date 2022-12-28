@@ -31,7 +31,6 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Kode Bus</th>
                   <th>Nama Bus</th>
                   <th>Plat Bus</th>
                   <th>Kapasitas Kursi</th>
@@ -43,7 +42,6 @@
                 <?php $i = 1 ; foreach ($bus as $row ) { ?>
                 <tr>
                   <td><?php echo $i++; ?></td>
-                  <td><?php echo strtoupper($row['kd_bus']); ?></td>
                   <td><?php echo strtoupper($row['nama_bus']); ?></td>
                   <td><?php echo strtoupper($row['plat_bus']); ?></td>
                   <td><?php echo $row['kapasitas_bus'] ?></td>
@@ -84,7 +82,7 @@
     <form action="<?php echo base_url()?>backend/bus_mybus/tambahbus" method="post">
       <div class="form-group">
         <label for="platbus" class="">Nama BUS</label>
-        <input type="text" class="form-control" name="nama_bus" placeholder="Plat Bus">
+        <input type="text" class="form-control" name="nama_bus" placeholder="Nama Bus">
       </div>
       <div class="form-group">
         <label for="platbus" class="">Plat BUS</label>

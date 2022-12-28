@@ -17,14 +17,14 @@ class Tiket_mybus extends CI_Controller {
 		}
 	}
 	public function index(){
-		$data['title'] = "List Tiket";
-		$data['tiket'] = $this->db->query("SELECT * FROM tbl_tiket_mybus ")->result_array();
+		$data['title'] = "List Tiket Individu";
+		$data['tiket'] = $this->db->query("SELECT * FROM tbl_tiket_mybus WHERE umur_tiket != '' group by kd_order")->result_array();
 		$this->load->view('backend/tiket', $data);	
 	}
 
 	public function index2(){
-		$data['title'] = "List Tiket";
-		$data['tiket'] = $this->db->query("SELECT * FROM tbl_tiket_mybus ")->result_array();
+		$data['title'] = "List Tiket Institusi";
+		$data['tiket'] = $this->db->query("SELECT * FROM tbl_tiket_mybus WHERE nama_institusi != '' group by kd_order")->result_array();
 		$this->load->view('backend/tiket_institusi', $data);	
 	}
 

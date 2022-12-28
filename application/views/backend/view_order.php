@@ -46,7 +46,7 @@
                   <div class="row form-group">
                     <label for="nama" class="col-sm-4 control-label">Nama Institusi</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="nama[]" value="<?php echo $row['nama_institusi'] ?>" readonly>
+                      <input type="text" class="form-control" name="nama_institusi" value="<?php echo $row['nama_institusi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
@@ -56,7 +56,7 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Harga Booking</label>
+                    <label for="" class="col-sm-4 control-label">Harga Satuan</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="harga" value="<?php  echo $row['harga_jadwal']; ?>" readonly>
                     </div>
@@ -149,11 +149,11 @@
                   </div>
                 </div>
               </div>
-              <hr><a class="btn btn-default" href="<?php echo base_url().'backend/order_mybus' ?>">Kembali</a>
+              <hr><a class="btn btn-default" href="<?php echo base_url('backend/order_mybus/index2')?>">Kembali</a>
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<?php if ($tiket[0]['status_order'] == '1') { ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-info">Proses</button>
                 <?php }else{ ?>
-              <a class="btn btn-success" href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>">Cetak Eticket</a>
-                        <?php } ?>
+                  <a class="btn btn-success" href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>">Cetak Eticket</a>
+                <?php } ?>
             </div>
           </div>
         </form>
