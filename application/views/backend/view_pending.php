@@ -25,7 +25,6 @@
         </div>
         <div class="card-body">
           <form action="<?php echo base_url().'backend/order_mybus/inserttiket' ?>" method="post" enctype="multipart/form-data">
-             
             <div class="card-body">
               <div class="row">
                 <?php foreach ($tiket as $row ) { ?>

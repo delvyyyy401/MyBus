@@ -181,7 +181,7 @@
 													<div class="alert alert-danger" role="alert">
 														<p>Setelah memilih kursi, silahkan klik tombol 'selanjutnya' dibawah ini !</p>
 														<div class='btn-group'>
-															<a href="<?php echo base_url('tiket_41518110070/cekjadwal/'.$tanggal.'/'.$asal['kd_tujuan'].'/'.$jadwal['kota_tujuan']) ?>" class='btn btn-default'>Kembali</a>
+															<a href="<?php echo base_url('tiket_mybus/cekjadwal/'.$tanggal.'/'.$asal['kd_tujuan'].'/'.$jadwal['kota_tujuan']) ?>" class='btn btn-default'>Kembali</a>
 															<input class="btn btn-danger pull-right" disabled="disabled" type="submit" value="Selanjutnya">
 														</div>
 													</div>

@@ -42,13 +42,6 @@
                         <a class="btn btn-sm btn-default" href="#lap_jual_perbulan" data-toggle="modal">Export Excel</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td style="text-align:center;vertical-align:middle">3</td>
-                        <td style="vertical-align:middle;">Laporan Grafik Perjalanan Tiap Kota</td>
-                        <td style="text-align:center;">
-                        <a class="btn btn-sm btn-default" href="#lap_jual_pertanggal" data-toggle="modal">Lihat Grafik</a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -113,8 +106,7 @@
                                     <?php foreach ($bulan as $row) { ?>
                                         <option value="<?php echo $row['bulan'] ?>"><?php echo $row['bulan'] ?></option>
                                     <?php } ?>
-                                                                </select>
-
+                                </select>
                             </div>
                         </div>
                     </div>

@@ -21,6 +21,7 @@ class Home_mybus extends CI_Controller {
 		$data['total'] = $this->db->query("SELECT sum(total_konfirmasi) FROM tbl_konfirmasi_mybus ")->result_array();
 		$this->load->view('backend/home', $data);
 	}
+
 	function getsecurity($value=''){
 		$username = $this->session->userdata('username_admin');
 		if (empty($username)) {
