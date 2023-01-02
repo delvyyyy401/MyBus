@@ -10,4 +10,4 @@ Admin: email : adm@gmail.com, password : admin
 
 Manager : email : manager@gmail.com, password : admin
 
-Customer : mail : fanget@gmail.com, paword : fanget123
+Customer : mail : fanget@gmail.com, password : fanget123
