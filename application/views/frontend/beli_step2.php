@@ -60,6 +60,7 @@
 											<div class="form-group">
 												<input type="text" id="" class="form-control" id="" name="nama[]" placeholder="Kursi nomor <?php echo $row ?> Atas Nama" required>
 												<input type="hidden" name="kursi[]" value="<?php echo $row ?>">
+												<input type="hidden" name="email_pemesan" value="">
 											</div>
 											<div class="form-group">
 												<input name='tahun' required="" class='form-control required' placeholder='Umur' type='number' title='Umur harus diisi.'>

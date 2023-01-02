@@ -26,6 +26,7 @@ class Tiket_mybus extends CI_Controller {
 		$this->load->view('frontend/cektanggal',$data);
 	}
 	public function cektiket($value=''){
+
 		$this->load->view('frontend/cektiket');
 	}
 	public function cekjadwal($tgl='' , $asl='', $tjn=''){
@@ -79,14 +80,12 @@ class Tiket_mybus extends CI_Controller {
 		}
 	}
 	public function afterbeli(){
-		// die(print_r($_GET));
 		$data['kursi'] = $this->input->get('kursi');
 		$data['bank'] = $this->db->query("SELECT * FROM `tbl_bank_mybus` ")->result_array();
 		$data['kd_jadwal'] = $this->session->userdata('jadwal');
 		$data['asal'] = $this->session->userdata('asal');
 		$data['tglberangkat'] = $this->input->get('tgl');
 		if ($data['kursi']) {
-		// die(print_r($data));
 		$this->load->view('frontend/beli_step2', $data);
 		}else{
 			$this->session->set_flashdata('message', 'swal("Kosong", "Pilih Kursi Anda", "error");');

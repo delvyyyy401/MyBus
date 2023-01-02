@@ -38,7 +38,7 @@
 					    <form action="<?php echo base_url() ?>tiket_mybus/cekorder" method="post">
 									<div class="form-group">
 										<label for="exampleInputEmail1">Masukan Kode order</label>
-										<input type="text" id="" class="form-control" id="" name="kodetiket" placeholder="Kode Tiket" required="">
+										<input type="text" id="" class="form-control" id="" name="kodetiket" placeholder="Kode Order" required="">
 									</div>
 									<button type="submit" class="btn btn-danger pull-right">Cari </button>
 								</form>

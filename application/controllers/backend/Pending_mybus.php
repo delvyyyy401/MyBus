@@ -60,6 +60,7 @@ class Pending_mybus extends CI_Controller {
 		$nama = $this->input->post('nama');
 		$kursi = $this->input->post('no_kursi');
 		$umur = $this->input->post('umur_kursi');
+		$email = $this->input->post('email_order');
 		$nama_institusi =  $this->input->post('nama_institusi');
 		$jumlah_kursi_institusi =  $this->input->post('jumlah_kursi_institusi');
 		$harga = $this->input->post('harga');

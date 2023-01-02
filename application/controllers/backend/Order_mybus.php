@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Order_mybus extends CI_Controller {
 	function __construct(){
 	parent::__construct();
@@ -41,17 +44,23 @@ class Order_mybus extends CI_Controller {
 	}
 
 	public function inserttiket($value=''){
+		include('assets/phpmailer/src/Exception.php');
+		include('assets/phpmailer/src/PHPMailer.php');
+		include('assets/phpmailer/src/SMTP.php');
+
 		$id = $this->input->post('kd_order');
 		$asal = $this->input->post('asal_beli');
 		$tiket = $this->input->post('kd_tiket');
 		$nama = $this->input->post('nama');
 		$kursi = $this->input->post('no_kursi');
 		$umur = $this->input->post('umur_kursi');
+		$email = $this->input->post('email');
 		$nama_institusi =  $this->input->post('nama_institusi');
 		$jumlah_kursi_institusi =  $this->input->post('jumlah_kursi_institusi');
 		$harga = $this->input->post('harga');
 		$tgl = $this->input->post('tgl_beli');
 		$status = $this->input->post('status');
+
 		$where = array('kd_order' => $id );
 		$update = array('status_order' => $status );
 		$this->db->update('tbl_order_mybus', $update,$where);
@@ -60,7 +69,10 @@ class Order_mybus extends CI_Controller {
 		$pelanggan = $this->db->query("SELECT email_pelanggan FROM tbl_pelanggan_mybus WHERE kd_pelanggan ='".$data['cetak'][0]['kd_pelanggan']."'")->row_array();
 		$pdfFilePath = "assets/backend/upload/etiket/".$id.".pdf";
 		$html = $this->load->view('frontend/cetaktiket', $data, TRUE);
-		for ($i=0; $i < count($nama) ; $i++) { 
+		$this->load->library('m_pdf');
+		$this->m_pdf->pdf->WriteHTML($html);
+		$this->m_pdf->pdf->Output($pdfFilePath);
+		for ($i=0; $i < count($nama); $i++) { 
 		if (empty($nama_institusi)) {
 			$simpan = array(
 				'kd_tiket' => $tiket[$i],
@@ -95,6 +107,54 @@ class Order_mybus extends CI_Controller {
 			);
 		}
 		$this->db->insert('tbl_tiket_mybus', $simpan);
+
+		if(($this->db->insert('tbl_tiket_mybus', $simpan))){
+			$email_pengirim = 'deldelvy401@gmail.com';
+			$nama_pengirim = 'My Bus';
+			$email_penerima = $email[$i];
+			$subject = 'e-Ticket My Bus';
+			$body = 'Halo, '.$nama[$i].'.'.'
+			
+			Terima kasih telah melakukan pemesanan tiket bus My Bus.'.'
+			Berikut detail pemesanan Anda :
+			
+			Kode Order : '.$id.'
+			Kode Tiket : '.$tiket[$i].'
+			Waktu Pesan : '.$tgl.'
+			Nama Pemesan : '.$nama[$i].'
+			Nomor Kursi	: '.$kursi[$i].'
+			Jumlah Bayar : '.$harga.'
+			Status : LUNAS
+			
+			Terima kasih telah mempercayakan My Bus sebagai teman perjalananmu.
+			Have a good trip!';
+
+			$mail = new PHPMailer;
+			$mail->isSMTP();
+
+			$mail->Host = 'smtp.gmail.com';
+			$mail->Username = $email_pengirim;
+			$mail->Password = 'sopssxxuwakilbhy';
+			$mail->Port = 465;
+			$mail->SMTPAuth = true;
+			$mail->SMTPSecure = 'ssl';
+			$mail->SMTPDebug = 2;
+			
+			$mail->setFrom($email_pengirim, $email_pengirim);
+			$mail->addAddress($email_penerima);
+			$mail->Subject = $subject;
+			$mail->Body = $body;
+
+			$send = $mail->send();
+
+			if($send){
+				echo "<h1> Email Berhasil dikirim</h1>";
+			}else{
+				echo "<h1> Email Gagal dikirim</h1>";
+			}
+			echo "<script>alert('Email Berhasil Dikirim')</script>";
+		}
+
 		}
 	    $this->session->set_flashdata('message', 'swal("Berhasil", "Tiket Order Berhasil Di Proses", "success");');
 		redirect('backend/order_mybus');
