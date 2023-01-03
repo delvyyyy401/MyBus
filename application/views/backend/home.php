@@ -25,56 +25,7 @@
 
 
 <?php 
-$koneksi = mysqli_connect("localhost", "root","", "db-sistem-informasi-keuangan-master");
 $koneksi2 = mysqli_connect("localhost", "root","", "db_mybus");
-
-$pemasukan=mysqli_query($koneksi,"SELECT * FROM pemasukan");
-while ($masuk=mysqli_fetch_array($pemasukan)){
-$arraymasuk[] = $masuk['jumlah'];
-}
-$jumlahmasuk = array_sum($arraymasuk);
-
-
-$pengeluaran=mysqli_query($koneksi,"SELECT * FROM pengeluaran");
-while ($keluar=mysqli_fetch_array($pengeluaran)){
-$arraykeluar[] = $keluar['jumlah'];
-}
-$jumlahkeluar = array_sum($arraykeluar);
-
-$uang = $jumlahmasuk - $jumlahkeluar;
-
-//untuk data chart area
-$sekarang =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE()");
-$sekarang = mysqli_fetch_array($sekarang);
-
-$satuhari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE() - INTERVAL 1 DAY");
-$satuhari= mysqli_fetch_array($satuhari);
-
-$duahari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE() - INTERVAL 2 DAY");
-$duahari= mysqli_fetch_array($duahari);
-
-$tigahari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE() - INTERVAL 3 DAY");
-$tigahari= mysqli_fetch_array($tigahari);
-
-$empathari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE() - INTERVAL 4 DAY");
-$empathari= mysqli_fetch_array($empathari);
-
-$limahari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE() - INTERVAL 5 DAY");
-$limahari= mysqli_fetch_array($limahari);
-
-$enamhari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE() - INTERVAL 6 DAY");
-$enamhari= mysqli_fetch_array($enamhari);
-
-$tujuhhari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE() - INTERVAL 7 DAY");
-$tujuhhari= mysqli_fetch_array($tujuhhari);
 ?>
 
   <!-- navbar -->
@@ -440,7 +391,7 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
                               }
                               $jumlahhasili2 = array_sum($arrayhasili2);
                               
-                              $hasili3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 3");
+                              $hasili3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 2");
                               while ($jumlahi3=mysqli_fetch_array($hasili3)){
                               $arrayhasili3[] = $jumlahi3['total_konfirmasi'];
                               }
@@ -556,77 +507,6 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
                     </div>
                   </div>
 
-              
-                <!-- Pie Chart -->
-                <div class="col-xl-4 col-lg-5">
-                  <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                      <h6 class="m-0 font-weight-bold text-primary">Perbandingan Pemesanan</h6>
-                      <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Dropdown Header:</div>
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                      <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
-                      </div>
-                      <div class="mt-4 text-center small">
-                        <span class="mr-2">
-                          <i class="fas fa-circle text-primary"></i> Pendapatan
-                        </span>
-                        <span class="mr-2">
-                          <i class="fas fa-circle text-danger"></i> Pengeluaran
-                        </span>
-                        <span class="mr-2">
-                          <i class="fas fa-circle text-info"></i> Sisa
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Grafik Pendapatan</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>         
-            
       </div>
       <!-- /.container-fluid -->
 
