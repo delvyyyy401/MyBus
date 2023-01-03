@@ -110,7 +110,7 @@ class Order_mybus extends CI_Controller {
 			}
 			$this->db->insert('tbl_tiket_mybus', $simpan);
 
-			if(($this->db->insert('tbl_tiket_mybus', $simpan))){
+			if(($simpan)){
 				$email_pengirim = 'deldelvy401@gmail.com';
 				$nama_pengirim = 'My Bus';
 				$email_penerima = $email[$i];
@@ -194,7 +194,7 @@ class Order_mybus extends CI_Controller {
 			}
 			$this->db->insert('tbl_tiket_mybus', $simpan);
 
-			if(($this->db->insert('tbl_tiket_mybus', $simpan))){
+			if(($simpan)){
 				$email_pengirim = 'deldelvy401@gmail.com';
 				$nama_pengirim = 'My Bus';
 				$email_penerima = $email[$i];

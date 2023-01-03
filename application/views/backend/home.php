@@ -168,7 +168,6 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
                     </div>
                   </div>
                 </div>
-
               </div>
 
 
@@ -234,167 +233,329 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
               </div> 
             </div>
 
-            <!-- CHART -->
-            <div class="row">
-              <!-- Content Column -->
-              <div class="col-lg-8 mb-4">
-                <!-- Project Card Example -->
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Transaksi Institusi Per Area</h6>
-                  </div>
-                  <div class="card-body">
-                  <?php
-                  $namasumber1 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 1 ");
-                  $sumbern1= mysqli_fetch_assoc($namasumber1);
-                  
-                  $namasumber2 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 2 ");
-                  $sumbern2= mysqli_fetch_assoc($namasumber2);
-                  
-                  $namasumber3 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 3 ");
-                  $sumbern3= mysqli_fetch_assoc($namasumber3);
-                  
-                  $namasumber4 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 4 ");
-                  $sumbern4= mysqli_fetch_assoc($namasumber4);
-                  
-                  $namasumber5 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 5 ");
-                  $sumbern5= mysqli_fetch_assoc($namasumber5);
+                  <div class="col-lg-">
+                    <!-- Collapsable Card Example -->
+                    <div class="card shadow mb-4">
+                      <!-- Card Header - Accordion -->
+                      <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-primary">Transaksi Institusi Per Area</h6>
+                      </a>
+                      <!-- Card Content - Collapse -->
+                      <div class="collapse show" id="collapseCardExample">
+                        <div class="card-body"> 
+                          <?php
+                            $namasumber1 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 1 ");
+                            $sumbern1= mysqli_fetch_assoc($namasumber1);
+                            
+                            $namasumber2 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 2 ");
+                            $sumbern2= mysqli_fetch_assoc($namasumber2);
+                            
+                            $namasumber3 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 3 ");
+                            $sumbern3= mysqli_fetch_assoc($namasumber3);
+                            
+                            $namasumber4 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 4 ");
+                            $sumbern4= mysqli_fetch_assoc($namasumber4);
+                            
+                            $namasumber5 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 5 ");
+                            $sumbern5= mysqli_fetch_assoc($namasumber5);
 
-                  $namasumber6 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 6 ");
-                  $sumbern6= mysqli_fetch_assoc($namasumber6);
+                            $namasumber6 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 6 ");
+                            $sumbern6= mysqli_fetch_assoc($namasumber6);
 
-                  $namasumber7 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 7 ");
-                  $sumbern7= mysqli_fetch_assoc($namasumber7);
+                            $namasumber7 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 7 ");
+                            $sumbern7= mysqli_fetch_assoc($namasumber7);
 
-                  $namasumber8 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 8 ");
-                  $sumbern8= mysqli_fetch_assoc($namasumber8);
- 
-                  $hasil1=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 1");
-                  while ($jumlah1=mysqli_fetch_array($hasil1)){
-                  $arrayhasil1[] = $jumlah1['total_konfirmasi'];
-                  }
-                  $jumlahhasil1 = array_sum($arrayhasil1);
-                  
-                  $hasil2=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 2");
-                  while ($jumlah2=mysqli_fetch_array($hasil2)){
-                  $arrayhasil2[] = $jumlah2['total_konfirmasi'];
-                  }
-                  $jumlahhasil2 = array_sum($arrayhasil2);
-                  
-                  $hasil3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 3");
-                  while ($jumlah3=mysqli_fetch_array($hasil3)){
-                  $arrayhasil3[] = $jumlah3['total_konfirmasi'];
-                  }
-                  $jumlahhasil3 = array_sum($arrayhasil3);
-                  
-                  $hasil4=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 4");
-                  while ($jumlah4=mysqli_fetch_array($hasil4)){
-                  $arrayhasil4[] = $jumlah4['total_konfirmasi'];
-                  }
-                  $jumlahhasil4 = array_sum($arrayhasil4);
-                  
-                  $hasil5=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 5");
-                  while ($jumlah5=mysqli_fetch_array($hasil5)){
-                  $arrayhasil5[] = $jumlah5['total_konfirmasi'];
-                  }
-                  $jumlahhasil5 = array_sum($arrayhasil5);
+                            $namasumber8 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 8 ");
+                            $sumbern8= mysqli_fetch_assoc($namasumber8);
+          
+                            $hasil1=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 1");
+                            while ($jumlah1=mysqli_fetch_array($hasil1)){
+                            $arrayhasil1[] = $jumlah1['total_konfirmasi'];
+                            }
+                            $jumlahhasil1 = array_sum($arrayhasil1);
+                            
+                            $hasil2=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 2");
+                            while ($jumlah2=mysqli_fetch_array($hasil2)){
+                            $arrayhasil2[] = $jumlah2['total_konfirmasi'];
+                            }
+                            $jumlahhasil2 = array_sum($arrayhasil2);
+                            
+                            $hasil3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 3");
+                            while ($jumlah3=mysqli_fetch_array($hasil3)){
+                            $arrayhasil3[] = $jumlah3['total_konfirmasi'];
+                            }
+                            $jumlahhasil3 = array_sum($arrayhasil3);
+                            
+                            $hasil4=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 4");
+                            while ($jumlah4=mysqli_fetch_array($hasil4)){
+                            $arrayhasil4[] = $jumlah4['total_konfirmasi'];
+                            }
+                            $jumlahhasil4 = array_sum($arrayhasil4);
+                            
+                            $hasil5=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 5");
+                            while ($jumlah5=mysqli_fetch_array($hasil5)){
+                            $arrayhasil5[] = $jumlah5['total_konfirmasi'];
+                            }
+                            $jumlahhasil5 = array_sum($arrayhasil5);
 
-                  $hasil6=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 6");
-                  while ($jumlah6=mysqli_fetch_array($hasil6)){
-                  $arrayhasil6[] = $jumlah6['total_konfirmasi'];
-                  }
-                  $jumlahhasil6 = array_sum($arrayhasil6);
+                            $hasil6=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 6");
+                            while ($jumlah6=mysqli_fetch_array($hasil6)){
+                            $arrayhasil6[] = $jumlah6['total_konfirmasi'];
+                            }
+                            $jumlahhasil6 = array_sum($arrayhasil6);
 
-                  $hasil7=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 7");
-                  while ($jumlah7=mysqli_fetch_array($hasil7)){
-                  $arrayhasil7[] = $jumlah7['total_konfirmasi'];
-                  }
-                  $jumlahhasil7 = array_sum($arrayhasil7);
+                            $hasil7=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 7");
+                            while ($jumlah7=mysqli_fetch_array($hasil7)){
+                            $arrayhasil7[] = $jumlah7['total_konfirmasi'];
+                            }
+                            $jumlahhasil7 = array_sum($arrayhasil7);
 
-                  $hasil8=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 8");
-                  while ($jumlah8=mysqli_fetch_array($hasil8)){
-                  $arrayhasil8[] = $jumlah8['total_konfirmasi'];
-                  }
-                  $jumlahhasil8 = array_sum($arrayhasil8);
-                  
-                  $sumber1 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 1 AND nama_institusi != ''");
-                  $sumber1text = mysqli_num_rows($sumber1);
-                  $sumber1 = mysqli_num_rows($sumber1);
-                  $sumber1 = $sumber1 * 10;
-                  
-                  $sumber2 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 2 AND nama_institusi != ''");
-                  $sumber2text = mysqli_num_rows($sumber2);
-                  $sumber2 = mysqli_num_rows($sumber2);
-                  $sumber2 = $sumber2 * 10;
-                  
-                  $sumber3 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 3 AND nama_institusi != ''");
-                  $sumber3text = mysqli_num_rows($sumber3);
-                  $sumber3 = mysqli_num_rows($sumber3);
-                  $sumber3 = $sumber3 * 10;
-                  
-                  $sumber4 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 4 AND nama_institusi != ''");
-                  $sumber4text = mysqli_num_rows($sumber4);
-                  $sumber4 = mysqli_num_rows($sumber4);
-                  $sumber4 = $sumber4 * 10;
-                  
-                  $sumber5 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 5 AND nama_institusi != ''");
-                  $sumber5text = mysqli_num_rows($sumber5);
-                  $sumber5 = mysqli_num_rows($sumber5);
-                  $sumber5 = $sumber5 * 10;
+                            $hasil8=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 8");
+                            while ($jumlah8=mysqli_fetch_array($hasil8)){
+                            $arrayhasil8[] = $jumlah8['total_konfirmasi'];
+                            }
+                            $jumlahhasil8 = array_sum($arrayhasil8);
+                            
+                            $sumber1 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 1 AND nama_institusi != '' AND status_order = 2");
+                            $sumber1text = mysqli_num_rows($sumber1);
+                            $sumber1 = mysqli_num_rows($sumber1);
+                            $sumber1 = $sumber1 * 10;
+                            
+                            $sumber2 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 2 AND nama_institusi != '' AND status_order = 2");
+                            $sumber2text = mysqli_num_rows($sumber2);
+                            $sumber2 = mysqli_num_rows($sumber2);
+                            $sumber2 = $sumber2 * 10;
+                            
+                            $sumber3 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 3 AND nama_institusi != '' AND status_order = 2");
+                            $sumber3text = mysqli_num_rows($sumber3);
+                            $sumber3 = mysqli_num_rows($sumber3);
+                            $sumber3 = $sumber3 * 10;
+                            
+                            $sumber4 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 4 AND nama_institusi != '' AND status_order = 2");
+                            $sumber4text = mysqli_num_rows($sumber4);
+                            $sumber4 = mysqli_num_rows($sumber4);
+                            $sumber4 = $sumber4 * 10;
+                            
+                            $sumber5 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 5 AND nama_institusi != '' AND status_order = 2");
+                            $sumber5text = mysqli_num_rows($sumber5);
+                            $sumber5 = mysqli_num_rows($sumber5);
+                            $sumber5 = $sumber5 * 10;
 
-                  $sumber6 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 6 AND nama_institusi != ''");
-                  $sumber6text = mysqli_num_rows($sumber6);
-                  $sumber6 = mysqli_num_rows($sumber6);
-                  $sumber6 = $sumber6 * 10;
+                            $sumber6 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 6 AND nama_institusi != '' AND status_order = 2");
+                            $sumber6text = mysqli_num_rows($sumber6);
+                            $sumber6 = mysqli_num_rows($sumber6);
+                            $sumber6 = $sumber6 * 10;
 
-                  $sumber7 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 7 AND nama_institusi != ''");
-                  $sumber7text = mysqli_num_rows($sumber7);
-                  $sumber7 = mysqli_num_rows($sumber7);
-                  $sumber7 = $sumber7 * 10;
+                            $sumber7 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 7 AND nama_institusi != '' AND status_order = 2");
+                            $sumber7text = mysqli_num_rows($sumber7);
+                            $sumber7 = mysqli_num_rows($sumber7);
+                            $sumber7 = $sumber7 * 10;
 
-                  $sumber8 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 8 AND nama_institusi != ''");
-                  $sumber8text = mysqli_num_rows($sumber8);
-                  $sumber8 = mysqli_num_rows($sumber8);
-                  $sumber8 = $sumber8 * 10;
-                  
-                  $no=1;
-                  echo '
-                    <h4 class="small font-weight-bold">'.$sumbern1['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil1,2,',','.').'</span></h4>
-                            <div class="progress mb-4">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width:'.$sumber1.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber1text.' Transaksi</div>
-                            </div>
-                    <h4 class="small font-weight-bold">'.$sumbern2['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil2,2,',','.').'</span></h4>
-                            <div class="progress mb-4">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width:'.$sumber2.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber2text.' Transaksi</div>
-                            </div>
-                    <h4 class="small font-weight-bold">'.$sumbern3['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil3,2,',','.').'</span></h4>
-                            <div class="progress mb-4">
-                              <div class="progress-bar bg-info" role="progressbar" style="width:'.$sumber3.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber3text.' Transaksi</div>
-                            </div>
-                    <h4 class="small font-weight-bold">'.$sumbern4['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil4,2,',','.').'</span></h4>
-                            <div class="progress mb-4">
-                              <div class="progress-bar bg-primary" role="progressbar" style="width:'.$sumber4.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber4text.' Transaksi</div>
-                            </div>
-                    <h4 class="small font-weight-bold">'.$sumbern5['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil5,2,',','.').'</span></h4>
-                            <div class="progress mb-4">
-                              <div class="progress-bar bg-success" role="progressbar" style="width:'.$sumber5.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber5text.' Transaksi</div>
-                            </div>
-                    <h4 class="small font-weight-bold">'.$sumbern6['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil6,2,',','.').'</span></h4>
-                            <div class="progress mb-4">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width:'.$sumber6.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber6text.' Transaksi</div>
-                            </div>
-                    <h4 class="small font-weight-bold">'.$sumbern7['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil7,2,',','.').'</span></h4>
-                            <div class="progress mb-4">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width:'.$sumber7.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber7text.' Transaksi</div>
-                            </div>
-                    <h4 class="small font-weight-bold">'.$sumbern8['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil8,2,',','.').'</span></h4>
-                            <div class="progress mb-4">
-                              <div class="progress-bar bg-info" role="progressbar" style="width:'.$sumber8.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber8text.' Transaksi</div>
-                            </div>';
-                    ?>
-                          </div>
+                            $sumber8 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 8 AND nama_institusi != '' AND status_order = 2");
+                            $sumber8text = mysqli_num_rows($sumber8);
+                            $sumber8 = mysqli_num_rows($sumber8);
+                            $sumber8 = $sumber8 * 10;
+                            
+                            $no=1;
+                            echo '
+                              <h4 class="small font-weight-bold">'.$sumbern1['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil1,2,',','.').'</span></h4>
+                                      <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width:'.$sumber1.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber1text.' Transaksi</div>
+                                      </div>
+                              <h4 class="small font-weight-bold">'.$sumbern2['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil2,2,',','.').'</span></h4>
+                                      <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width:'.$sumber2.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber2text.' Transaksi</div>
+                                      </div>
+                              <h4 class="small font-weight-bold">'.$sumbern3['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil3,2,',','.').'</span></h4>
+                                      <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width:'.$sumber3.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber3text.' Transaksi</div>
+                                      </div>
+                              <h4 class="small font-weight-bold">'.$sumbern4['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil4,2,',','.').'</span></h4>
+                                      <div class="progress mb-4">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width:'.$sumber4.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber4text.' Transaksi</div>
+                                      </div>
+                              <h4 class="small font-weight-bold">'.$sumbern5['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil5,2,',','.').'</span></h4>
+                                      <div class="progress mb-4">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width:'.$sumber5.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber5text.' Transaksi</div>
+                                      </div>
+                              <h4 class="small font-weight-bold">'.$sumbern6['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil6,2,',','.').'</span></h4>
+                                      <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width:'.$sumber6.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber6text.' Transaksi</div>
+                                      </div>
+                              <h4 class="small font-weight-bold">'.$sumbern7['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil7,2,',','.').'</span></h4>
+                                      <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width:'.$sumber7.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber7text.' Transaksi</div>
+                                      </div>
+                              <h4 class="small font-weight-bold">'.$sumbern8['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasil8,2,',','.').'</span></h4>
+                                      <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width:'.$sumber8.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumber8text.' Transaksi</div>
+                                      </div>';
+                          ?>
+                      </div>
+                    </div>
+                    </div>
+                    
+                    <div class="card shadow mb-4">
+                    <!-- Card Header - Accordion -->
+                      <a href="#collapseCardExample2" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample2">
+                        <h6 class="m-0 font-weight-bold text-primary">Transaksi Individu Per Area</h6>
+                      </a>
+                      <!-- Card Content - Collapse -->
+                      <div class="collapse show" id="collapseCardExample2">
+                        <div class="card-body">
+                          <?php
+                              $namasumberi1 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 1 ");
+                              $sumberni1= mysqli_fetch_assoc($namasumberi1);
+                              
+                              $namasumberi2 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 2 ");
+                              $sumberni2= mysqli_fetch_assoc($namasumberi2);
+                              
+                              $namasumberi3 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 3 ");
+                              $sumberni3= mysqli_fetch_assoc($namasumberi3);
+                              
+                              $namasumberi4 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 4 ");
+                              $sumberni4= mysqli_fetch_assoc($namasumberi4);
+                              
+                              $namasumberi5 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 5 ");
+                              $sumberni5= mysqli_fetch_assoc($namasumberi5);
+
+                              $namasumberi6 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 6 ");
+                              $sumberni6= mysqli_fetch_assoc($namasumberi6);
+
+                              $namasumberi7 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 7 ");
+                              $sumberni7= mysqli_fetch_assoc($namasumberi7);
+
+                              $namasumberi8 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 8 ");
+                              $sumberni8= mysqli_fetch_assoc($namasumberi8);
+            
+                              $hasili1=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 1");
+                              while ($jumlahi1=mysqli_fetch_array($hasili1)){
+                              $arrayhasili1[] = $jumlahi1['total_konfirmasi'];
+                              }
+                              $jumlahhasili1 = array_sum($arrayhasili1);
+                              
+                              $hasili2=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 2");
+                              while ($jumlahi2=mysqli_fetch_array($hasili2)){
+                              $arrayhasili2[] = $jumlahi2['total_konfirmasi'];
+                              }
+                              $jumlahhasili2 = array_sum($arrayhasili2);
+                              
+                              $hasili3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 3");
+                              while ($jumlahi3=mysqli_fetch_array($hasili3)){
+                              $arrayhasili3[] = $jumlahi3['total_konfirmasi'];
+                              }
+                              $jumlahhasili3 = array_sum($arrayhasili3);
+                              
+                              $hasili4=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 4");
+                              while ($jumlahi4=mysqli_fetch_array($hasili4)){
+                              $arrayhasili4[] = $jumlahi4['total_konfirmasi'];
+                              }
+                              $jumlahhasili4 = array_sum($arrayhasili4);
+                              
+                              $hasili5=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 5");
+                              while ($jumlahi5=mysqli_fetch_array($hasili5)){
+                              $arrayhasili5[] = $jumlahi5['total_konfirmasi'];
+                              }
+                              $jumlahhasili5 = array_sum($arrayhasili5);
+
+                              $hasili6=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 6");
+                              while ($jumlahi6=mysqli_fetch_array($hasili6)){
+                              $arrayhasili6[] = $jumlahi6['total_konfirmasi'];
+                              }
+                              $jumlahhasili6 = array_sum($arrayhasili6);
+
+                              $hasili7=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 7");
+                              while ($jumlahi7=mysqli_fetch_array($hasili7)){
+                              $arrayhasili7[] = $jumlahi7['total_konfirmasi'];
+                              }
+                              $jumlahhasili7 = array_sum($arrayhasili7);
+
+                              $hasili8=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 8");
+                              while ($jumlahi8=mysqli_fetch_array($hasili8)){
+                              $arrayhasili8[] = $jumlahi8['total_konfirmasi'];
+                              }
+                              $jumlahhasili8 = array_sum($arrayhasili8);
+                              
+                              $sumberi1 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 1 AND nama_kursi_order != '' AND status_order = 2 ");
+                              $sumberi1text = mysqli_num_rows($sumberi1);
+                              $sumberi1 = mysqli_num_rows($sumberi1);
+                              $sumberi1 = $sumberi1 * 10;
+                              
+                              $sumberi2 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 2 AND nama_kursi_order != '' AND status_order = 2");
+                              $sumberi2text = mysqli_num_rows($sumberi2);
+                              $sumberi2 = mysqli_num_rows($sumberi2);
+                              $sumberi2 = $sumberi2 * 10;
+                              
+                              $sumberi3 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 3 AND nama_kursi_order != '' AND status_order = 2");
+                              $sumberi3text = mysqli_num_rows($sumberi3);
+                              $sumberi3 = mysqli_num_rows($sumberi3);
+                              $sumberi3 = $sumberi3 * 10;
+                              
+                              $sumberi4 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 4 AND nama_kursi_order != '' AND status_order = 2");
+                              $sumberi4text = mysqli_num_rows($sumberi4);
+                              $sumberi4 = mysqli_num_rows($sumberi4);
+                              $sumberi4 = $sumberi4 * 10;
+                              
+                              $sumberi5 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 5 AND nama_kursi_order != '' AND status_order = 2");
+                              $sumberi5text = mysqli_num_rows($sumberi5);
+                              $sumberi5 = mysqli_num_rows($sumberi5);
+                              $sumberi5 = $sumberi5 * 10;
+
+                              $sumberi6 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 6 AND nama_kursi_order != '' AND status_order = 2");
+                              $sumberi6text = mysqli_num_rows($sumberi6);
+                              $sumberi6 = mysqli_num_rows($sumberi6);
+                              $sumberi6 = $sumberi6 * 10;
+
+                              $sumberi7 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 7 AND nama_kursi_order != '' AND status_order = 2");
+                              $sumberi7text = mysqli_num_rows($sumberi7);
+                              $sumberi7 = mysqli_num_rows($sumberi7);
+                              $sumberi7 = $sumberi7 * 10;
+
+                              $sumberi8 = mysqli_query($koneksi2,"SELECT asal_order FROM tbl_order_mybus WHERE asal_order = 8 AND nama_kursi_order != '' AND status_order = 2");
+                              $sumberi8text = mysqli_num_rows($sumberi8);
+                              $sumberi8 = mysqli_num_rows($sumberi8);
+                              $sumberi8 = $sumberi8 * 10;
+                              
+                              $no=1;
+                              echo '
+                                <h4 class="small font-weight-bold">'.$sumberni1['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasili1,2,',','.').'</span></h4>
+                                        <div class="progress mb-4">
+                                          <div class="progress-bar bg-danger" role="progressbar" style="width:'.$sumberi1.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumberi1text.' Transaksi</div>
+                                        </div>
+                                <h4 class="small font-weight-bold">'.$sumberni2['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasili2,2,',','.').'</span></h4>
+                                        <div class="progress mb-4">
+                                          <div class="progress-bar bg-warning" role="progressbar" style="width:'.$sumberi2.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumberi2text.' Transaksi</div>
+                                        </div>
+                                <h4 class="small font-weight-bold">'.$sumberni3['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasili3,2,',','.').'</span></h4>
+                                        <div class="progress mb-4">
+                                          <div class="progress-bar bg-info" role="progressbar" style="width:'.$sumberi3.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumberi3text.' Transaksi</div>
+                                        </div>
+                                <h4 class="small font-weight-bold">'.$sumberni4['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasili4,2,',','.').'</span></h4>
+                                        <div class="progress mb-4">
+                                          <div class="progress-bar bg-primary" role="progressbar" style="width:'.$sumberi4.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumberi4text.' Transaksi</div>
+                                        </div>
+                                <h4 class="small font-weight-bold">'.$sumberni5['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasili5,2,',','.').'</span></h4>
+                                        <div class="progress mb-4">
+                                          <div class="progress-bar bg-success" role="progressbar" style="width:'.$sumberi5.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumberi5text.' Transaksi</div>
+                                        </div>
+                                <h4 class="small font-weight-bold">'.$sumberni6['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasili6,2,',','.').'</span></h4>
+                                        <div class="progress mb-4">
+                                          <div class="progress-bar bg-danger" role="progressbar" style="width:'.$sumberi6.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumberi6text.' Transaksi</div>
+                                        </div>
+                                <h4 class="small font-weight-bold">'.$sumberni7['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasili7,2,',','.').'</span></h4>
+                                        <div class="progress mb-4">
+                                          <div class="progress-bar bg-warning" role="progressbar" style="width:'.$sumberi7.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumberi7text.' Transaksi</div>
+                                        </div>
+                                <h4 class="small font-weight-bold">'.$sumberni8['kota_tujuan'].'<span class="float-right">Rp. '.number_format($jumlahhasili8,2,',','.').'</span></h4>
+                                        <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width:'.$sumberi8.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">'.$sumberi8text.' Transaksi</div>
+                                        </div>';
+                            ?>
                         </div>
+                      </div>
+                    </div>
                   </div>
+
               
                 <!-- Pie Chart -->
                 <div class="col-xl-4 col-lg-5">

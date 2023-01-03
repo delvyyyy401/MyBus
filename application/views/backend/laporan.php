@@ -30,16 +30,30 @@
                 <tbody>
                     <tr>
                         <td style="text-align:center;vertical-align:middle">1</td>
-                        <td style="vertical-align:middle;">Laporan Excel Laporan Data Tiket Pertanggal</td>
+                        <td style="vertical-align:middle;">Laporan Excel Laporan Data Tiket Pertanggal Individu</td>
                         <td style="text-align:center;">
-                        <a class="btn btn-sm btn-default" href="#lap_jual_pertanggal" data-toggle="modal">Export Excel</a>
+                        <a class="btn btn-sm btn-default" href="#lap_jual_pertanggal_individu" data-toggle="modal">Export Excel</a>
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align:center;vertical-align:middle">2</td>
-                        <td style="vertical-align:middle;">Laporan Excel Laporan Data Tiket Perbulan</td>
+                        <td style="vertical-align:middle;">Laporan Excel Laporan Data Tiket Perbulan Individu</td>
                         <td style="text-align:center;">
-                        <a class="btn btn-sm btn-default" href="#lap_jual_perbulan" data-toggle="modal">Export Excel</a>
+                        <a class="btn btn-sm btn-default" href="#lap_jual_perbulan_individu" data-toggle="modal">Export Excel</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;vertical-align:middle">1</td>
+                        <td style="vertical-align:middle;">Laporan Excel Laporan Data Tiket Pertanggal Institusi</td>
+                        <td style="text-align:center;">
+                        <a class="btn btn-sm btn-default" href="#lap_jual_pertanggal_institusi" data-toggle="modal">Export Excel</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;vertical-align:middle">2</td>
+                        <td style="vertical-align:middle;">Laporan Excel Laporan Data Tiket Perbulan Institusi</td>
+                        <td style="text-align:center;">
+                        <a class="btn btn-sm btn-default" href="#lap_jual_perbulan_institusi" data-toggle="modal">Export Excel</a>
                         </td>
                     </tr>
                 </tbody>
@@ -48,14 +62,14 @@
     </div>
     <!-- /.row -->
     
-    <!-- ============ MODAL ADD =============== -->
-    <div class="modal fade" id="lap_jual_pertanggal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <!-- ============ MODAL ADD INDIVIDU=============== -->
+    <div class="modal fade" id="lap_jual_pertanggal_individu" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="myModalLabel">Pilih Tanggal</h3>
                 </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan_mybus/laportanggal') ?>" target="_blank">
+                <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan_mybus/laportanggalindividu') ?>" target="_blank">
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="control-label col-xs-3" > Dari Tanggal</label>
@@ -89,14 +103,14 @@
         </div>
     </div>
 
-    <!-- ============ MODAL ADD =============== -->
-    <div class="modal fade" id="lap_jual_perbulan" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <!-- ============ MODAL ADD INDIVIDU=============== -->
+    <div class="modal fade" id="lap_jual_perbulan_individu" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="myModalLabel">Pilih Bulan</h3>
                 </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan_mybus/laporbulan') ?>" target="_blank">
+                <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan_mybus/laporbulanindividu') ?>" target="_blank">
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="control-label col-xs-3">Bulan</label>
@@ -118,6 +132,79 @@
             </div>
         </div>
     </div>
+
+    <!-- ============ MODAL ADD INSTITUSI=============== -->
+    <div class="modal fade" id="lap_jual_pertanggal_institusi" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="myModalLabel">Pilih Tanggal</h3>
+                </div>
+                <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan_mybus/laportanggalinstitusi') ?>" target="_blank">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" > Dari Tanggal</label>
+                            <div class="col-xs-9">
+                                <div class='input-group date' id='datepicker' style="width:300px;">
+                                    <input type='text' name="mulai" class="form-control datepicker" value="" placeholder="Tanggal..." required/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" > Sampai Tanggal</label>
+                            <div class="col-xs-9">
+                                <div class='input-group date' id='datepicker' style="width:300px;">
+                                    <input type='text' name="sampai" class="form-control datepicker" value="" placeholder="Tanggal..." required/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                        <button class="btn btn-info"></span> Export Excel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL ADD INSTITUSI=============== -->
+    <div class="modal fade" id="lap_jual_perbulan_institusi" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="myModalLabel">Pilih Bulan</h3>
+                </div>
+                <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan_mybus/laporbulaninstitusi') ?>" target="_blank">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Bulan</label>
+                            <div class="col-xs-9">
+                                <select name="bulan" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Bulan" data-width="80%" required/>
+                                    <option value='' selected disabled>Pilih Bulan</option>
+                                    <?php foreach ($bulan as $row) { ?>
+                                        <option value="<?php echo $row['bulan'] ?>"><?php echo $row['bulan'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                        <button class="btn btn-info"><span class="fa fa-print"></span> Cetak</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
     <!-- End of Main Content -->
     <!-- Footer -->
     <?php $this->load->view('backend/include/base_footer'); ?>

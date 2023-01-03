@@ -78,7 +78,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?php echo base_url('backend/pelanggan_mybus') ?>">List Pelanggan</a>
-                <a class="collapse-item" href="<?php echo base_url('backend/admin_mybus') ?>">List Administrator</a>
+                <a class="collapse-item" href="<?php echo base_url('backend/admin_mybus') ?>">List User</a>
               </div>
             </div>
         <?php }else{ } ?>
@@ -102,6 +102,7 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">

@@ -23,18 +23,31 @@ class Laporan_mybus extends CI_Controller {
 		$data['bulan'] = $this->db->query("SELECT DISTINCT DATE_FORMAT(create_tgl_tiket,'%M %Y') AS bulan FROM tbl_tiket_mybus")->result_array();
 		$this->load->view('backend/laporan', $data);
 	}
-	public function laportanggal($value=''){
+	public function laportanggalindividu($value=''){
 		$data['mulai'] = $this->input->post('mulai');
 		$data['sampai'] = $this->input->post('sampai');
 		$data['laporan'] = $this->db->query("SELECT * FROM tbl_tiket_mybus WHERE (create_tgl_tiket BETWEEN '".$data['mulai']."' AND '".$data['sampai']."')")->result_array();
-		$this->load->view('backend/laporan/laporan_pertanggal', $data);		
+		$this->load->view('backend/laporan/laporan_pertanggalindividu', $data);		
 	}
 
-	public function laporbulan($value=''){
+	public function laporbulanindividu($value=''){
 		$data['bulan'] = $this->input->post('bulan');
-		// $data['laporan'] = $this->db->query("SELECT * FROM tbl_tiket_mybus WHERE month(create_tgl_tiket, '%M') = (SELECT STR_TO_DATE('".$data['bulan']."', '%M'))")->result_array();
 		$data['laporan'] = $this->db->query("SELECT * FROM tbl_tiket_mybus WHERE month(create_tgl_tiket) = (SELECT month(STR_TO_DATE('".$data['bulan']."', '%M %d %Y')))")->result_array();
 	
-		$this->load->view('backend/laporan/laporan_perbulan', $data);		
+		$this->load->view('backend/laporan/laporan_perbulanindividu', $data);		
+	}
+
+	public function laportanggalinstitusi($value=''){
+		$data['mulai'] = $this->input->post('mulai');
+		$data['sampai'] = $this->input->post('sampai');
+		$data['laporan'] = $this->db->query("SELECT * FROM tbl_tiket_mybus WHERE nama_institusi != '' AND (create_tgl_tiket BETWEEN '".$data['mulai']."' AND '".$data['sampai']."')")->result_array();
+		$this->load->view('backend/laporan/laporan_pertanggalinstitusi', $data);		
+	}
+
+	public function laporbulaninstitusi($value=''){
+		$data['bulan'] = $this->input->post('bulan');
+		$data['laporan'] = $this->db->query("SELECT * FROM tbl_tiket_mybus WHERE nama_institusi != '' AND month(create_tgl_tiket) = (SELECT month(STR_TO_DATE('".$data['bulan']."', '%M %d %Y')))")->result_array();
+	
+		$this->load->view('backend/laporan/laporan_perbulaninstitusi', $data);		
 	}
 }

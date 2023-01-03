@@ -7,11 +7,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>EXPORT LAPORAN</title>
+<title>EXPORT LAPORAN INDIVIDU</title>
 </head>
 
 <body>
-<th> <b>----- Laporan Penjualan Tiket Bulan <?php echo $bulan?> -----</b></th>
+<th> <b>----- Laporan Penjualan Tiket Individu Bulan <?php echo $bulan?> -----</b></th>
 <table><tr> </tr></table>
  <table border="1" cellspacing="1" cellpadding="2" width="90%">
     <tr>

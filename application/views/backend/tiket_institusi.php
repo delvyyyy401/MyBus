@@ -29,7 +29,7 @@
                   <th>Kode Tiket</th>
                   <th>Nama Institusi</th>
                   <th>Jumlah Kursi </th>
-                  <th>Harga Tiket</th>
+                  <th>Harga Booking</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -40,9 +40,10 @@
                     <td><?php echo $row['kd_tiket']; ?></td>
                     <td><?php echo $row['nama_institusi']; ?></td>
                     <td><?php echo $row['jumlah_kursi_institusi']; ?></td>
-                    <td>Rp <?php echo number_format((float)($row['harga_tiket']),0,",","."); ?>,-</td>
+                    <td>Rp <?php $total = $tiket[0]['jumlah_kursi_institusi'] * $tiket[0]['harga_tiket']; echo number_format((float)$total,0,",","."); ?></td>
                     <td><a href="<?php echo base_url('backend/tiket_mybus/viewtiket/'.$row['kd_tiket']) ?>" class="btn btn btn-danger">View</a></td>
                   </tr>
+
                 <?php } ?>
             </tbody>
           </table>

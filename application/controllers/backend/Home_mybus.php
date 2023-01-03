@@ -18,7 +18,7 @@ class Home_mybus extends CI_Controller {
 		$data['konfirmasi_institusi'] = $this->db->query("SELECT count(kd_konfirmasi) FROM tbl_konfirmasi_mybus WHERE total_konfirmasi > 1000000")->result_array();
 		$data['bus_disewa'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus WHERE nama_institusi != ''")->result_array();
 		$data['tiket_terjual'] = $this->db->query("SELECT count(kd_tiket) FROM tbl_tiket_mybus WHERE umur_tiket != ''")->result_array();
-		$data['total'] = $this->db->query("SELECT sum(total_konfirmasi) FROM tbl_konfirmasi_mybus ")->result_array();
+		$data['total'] = $this->db->query("SELECT sum(total_konfirmasi) FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND o.status_order = 2 ")->result_array();
 		$this->load->view('backend/home', $data);
 	}
 

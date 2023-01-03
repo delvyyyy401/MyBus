@@ -24,16 +24,51 @@
           <h6 class="m-0 font-weight-bold text-danger">KODE Order [<?php echo $tiket[0]['kd_order']; ?>]  </h6>
         </div>
         <div class="card-body">
-          <form action="<?php echo base_url().'backend/order_mybus/inserttiket' ?>" method="post" enctype="multipart/form-data">
+          <form action="<?php echo base_url().'backend/pending_mybus/inserttiket_bypending' ?>" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="row">
-                <?php foreach ($tiket as $row ) { ?>
+              <?php foreach ($tiket as $row ) { ?>
                 <input type="hidden" class="form-control" name="kd_pelanggan" value="<?php echo $row['kd_pelanggan'] ?>" readonly>
                 <input type="hidden" class="form-control" name="kd_order" value="<?php echo $row['kd_order'] ?>" readonly>
                 <input type="hidden" class="form-control" name="asal_beli" value="<?php echo $row['asal_order'] ?>" readonly>
                 <input type="hidden" class="form-control" name="kd_tiket[]" value="<?php echo $row['kd_tiket'] ?>" readonly>
                 <div class="col-sm-6">
+                <?php if ($row['jumlah_kursi_institusi'] == 19) { ?>
                   <label >Kode Tiket <b><?php echo $row['kd_tiket'] ?></b></label>
+                  <p>Nama Pemesan <b><?php echo $row['nama_order']; ?></b></p>
+                  <hr>
+                  <div class="row form-group">
+                    <label for="nama" class="col-sm-4 control-label">Kode Jadwal</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="kd_jadwal" value="<?php echo $row['kd_jadwal'] ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <label for="nama" class="col-sm-4 control-label">Nama Institusi</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="nama_institusi" value="<?php echo $row['nama_institusi'] ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <label for="" class="col-sm-4 control-label">Jumlah Kursi</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="no_kursi[]" value="<?php echo $row['jumlah_kursi_institusi'] ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <label for="" class="col-sm-4 control-label">Harga Satuan</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="harga" value="<?php  echo $row['harga_jadwal']; ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <label for="" class="col-sm-4 control-label">Batas Pembayaran</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="tgl_beli" value="<?php echo hari_indo(date('N',strtotime($row['expired_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['expired_order'].''))).', '.date('H:i',strtotime($row['expired_order']));  ?>" readonly>
+                    </div>
+                  </div>
+                <?php }else{ ?>
+                <label >Kode Tiket <b><?php echo $row['kd_tiket'] ?></b></label>
                   <p>Nama Pemesan <b><?php echo $row['nama_order']; ?></b></p>
                   <hr>
                   <div class="row form-group">
@@ -46,6 +81,7 @@
                     <label for="nama" class="col-sm-4 control-label">Nama Penumpang</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="nama[]" value="<?php echo $row['nama_kursi_order'] ?>" readonly>
+                      <input type="hidden" class="form-control" name="email[]" value="<?php echo $row['email_order'] ?>">
                     </div>
                   </div>
                   <div class="row form-group">
@@ -71,9 +107,11 @@
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="tgl_beli" value="<?php echo hari_indo(date('N',strtotime($row['expired_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['expired_order'].''))).', '.date('H:i',strtotime($row['expired_order']));  ?>" readonly>
                     </div>
-                  </div>
+                  </div>  
+                <?php } ?>
                 </div>
                 <?php } ?>
+
                 <div class="col-sm-6">
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Cek Konfirmasi Pembayaran</label>
@@ -93,25 +131,32 @@
                            </select>
                           <?php } elseif($tiket[0]['status_order'] == '2') { ?>
                             <p class="btn "><b class="btn btn-default">Sudah Bayar</b></p>
-
                         <?php } ?>
-                     
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Total Pembayaran</label>
                     <div class="col-sm-8">
+                    <?php if ($row['jumlah_kursi_institusi'] == 19) { ?>
+                      <p><b>Rp <?php $total = $tiket[0]['jumlah_kursi_institusi'] * $tiket[0]['harga_jadwal']; echo number_format($total)?></b></p>
+                    <?php }else{ ?>
                       <p><b>Rp <?php $total =  count($tiket) * $tiket[0]['harga_jadwal']; echo number_format($total)?></b></p>
+                    <?php } ?>
                       </select>
                     </div>
+
                   </div>
                 </div>
               </div>
-              <hr><a class="btn btn-default" href="<?php echo base_url().'backend/order_mybus' ?>"> Kembali</a>
+                    <?php if ($row['jumlah_kursi_institusi'] == 19) { ?>
+                      <hr><a class="btn btn-default" href="<?php echo base_url('backend/pending_mybus/index2')?>">Kembali</a>
+                    <?php }else{ ?>
+                      <hr><a class="btn btn-default" href="<?php echo base_url('backend/pending_mybus/index')?>">Kembali</a>
+                    <?php } ?>
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<?php if ($tiket[0]['status_order'] == '1') { ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-info">Proses</button>
-            <?php }else{ ?>
-              <a class="btn btn-success" href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>"> Cetak Eticket</a>
-                        <?php } ?>
+                <?php }else{ ?>
+                  <a class="btn btn-success" href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>"> Cetak Eticket</a>
+                <?php } ?>
             </div>
           </div>
         </form>
