@@ -219,49 +219,49 @@ $koneksi2 = mysqli_connect("localhost", "root","", "db_mybus");
                             $namasumber8 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 8 ");
                             $sumbern8= mysqli_fetch_assoc($namasumber8);
           
-                            $hasil1=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 1");
+                            $hasil1=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 1 AND o.status_order = 2");
                             while ($jumlah1=mysqli_fetch_array($hasil1)){
                             $arrayhasil1[] = $jumlah1['total_konfirmasi'];
                             }
                             $jumlahhasil1 = array_sum($arrayhasil1);
                             
-                            $hasil2=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 2");
+                            $hasil2=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 2 AND o.status_order = 2");
                             while ($jumlah2=mysqli_fetch_array($hasil2)){
                             $arrayhasil2[] = $jumlah2['total_konfirmasi'];
                             }
                             $jumlahhasil2 = array_sum($arrayhasil2);
                             
-                            $hasil3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 3");
+                            $hasil3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 3 AND o.status_order = 2");
                             while ($jumlah3=mysqli_fetch_array($hasil3)){
                             $arrayhasil3[] = $jumlah3['total_konfirmasi'];
                             }
                             $jumlahhasil3 = array_sum($arrayhasil3);
                             
-                            $hasil4=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 4");
+                            $hasil4=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 4 AND o.status_order = 2");
                             while ($jumlah4=mysqli_fetch_array($hasil4)){
                             $arrayhasil4[] = $jumlah4['total_konfirmasi'];
                             }
                             $jumlahhasil4 = array_sum($arrayhasil4);
                             
-                            $hasil5=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 5");
+                            $hasil5=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 5 AND o.status_order = 2");
                             while ($jumlah5=mysqli_fetch_array($hasil5)){
                             $arrayhasil5[] = $jumlah5['total_konfirmasi'];
                             }
                             $jumlahhasil5 = array_sum($arrayhasil5);
 
-                            $hasil6=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 6");
+                            $hasil6=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 6 AND o.status_order = 2");
                             while ($jumlah6=mysqli_fetch_array($hasil6)){
                             $arrayhasil6[] = $jumlah6['total_konfirmasi'];
                             }
                             $jumlahhasil6 = array_sum($arrayhasil6);
 
-                            $hasil7=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 7");
+                            $hasil7=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 7 AND o.status_order = 2");
                             while ($jumlah7=mysqli_fetch_array($hasil7)){
                             $arrayhasil7[] = $jumlah7['total_konfirmasi'];
                             }
                             $jumlahhasil7 = array_sum($arrayhasil7);
 
-                            $hasil8=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 8");
+                            $hasil8=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi > 1000000 AND o.asal_order = 8 AND o.status_order = 2");
                             while ($jumlah8=mysqli_fetch_array($hasil8)){
                             $arrayhasil8[] = $jumlah8['total_konfirmasi'];
                             }
@@ -379,49 +379,49 @@ $koneksi2 = mysqli_connect("localhost", "root","", "db_mybus");
                               $namasumberi8 = mysqli_query($koneksi2,"SELECT * FROM `tbl_tujuan_mybus` where kd_tujuan= 8 ");
                               $sumberni8= mysqli_fetch_assoc($namasumberi8);
             
-                              $hasili1=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 1");
+                              $hasili1=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 1 AND o.status_order = 2");
                               while ($jumlahi1=mysqli_fetch_array($hasili1)){
                               $arrayhasili1[] = $jumlahi1['total_konfirmasi'];
                               }
                               $jumlahhasili1 = array_sum($arrayhasili1);
                               
-                              $hasili2=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 2");
+                              $hasili2=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 2 AND o.status_order = 2");
                               while ($jumlahi2=mysqli_fetch_array($hasili2)){
                               $arrayhasili2[] = $jumlahi2['total_konfirmasi'];
                               }
                               $jumlahhasili2 = array_sum($arrayhasili2);
                               
-                              $hasili3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 2");
+                              $hasili3=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 3 AND o.status_order = 2");
                               while ($jumlahi3=mysqli_fetch_array($hasili3)){
                               $arrayhasili3[] = $jumlahi3['total_konfirmasi'];
                               }
                               $jumlahhasili3 = array_sum($arrayhasili3);
                               
-                              $hasili4=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 4");
+                              $hasili4=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 4 AND o.status_order = 2");
                               while ($jumlahi4=mysqli_fetch_array($hasili4)){
                               $arrayhasili4[] = $jumlahi4['total_konfirmasi'];
                               }
                               $jumlahhasili4 = array_sum($arrayhasili4);
                               
-                              $hasili5=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 5");
+                              $hasili5=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 5 AND o.status_order = 2");
                               while ($jumlahi5=mysqli_fetch_array($hasili5)){
                               $arrayhasili5[] = $jumlahi5['total_konfirmasi'];
                               }
                               $jumlahhasili5 = array_sum($arrayhasili5);
 
-                              $hasili6=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 6");
+                              $hasili6=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 6 AND o.status_order = 2");
                               while ($jumlahi6=mysqli_fetch_array($hasili6)){
                               $arrayhasili6[] = $jumlahi6['total_konfirmasi'];
                               }
                               $jumlahhasili6 = array_sum($arrayhasili6);
 
-                              $hasili7=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 7");
+                              $hasili7=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 7 AND o.status_order = 2");
                               while ($jumlahi7=mysqli_fetch_array($hasili7)){
                               $arrayhasili7[] = $jumlahi7['total_konfirmasi'];
                               }
                               $jumlahhasili7 = array_sum($arrayhasili7);
 
-                              $hasili8=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 8");
+                              $hasili8=mysqli_query($koneksi2,"SELECT * FROM tbl_konfirmasi_mybus k, tbl_order_mybus o WHERE k.kd_order = o.kd_order AND total_konfirmasi < 1000000 AND o.asal_order = 8 AND o.status_order = 2");
                               while ($jumlahi8=mysqli_fetch_array($hasili8)){
                               $arrayhasili8[] = $jumlahi8['total_konfirmasi'];
                               }
